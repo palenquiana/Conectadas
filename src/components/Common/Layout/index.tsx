@@ -1,4 +1,5 @@
 import { FC, ReactNode } from "react";
+import {  } from "./";
 
 type Props = {
   children: ReactNode;
@@ -7,9 +8,9 @@ type Props = {
 const Layout: FC<Props> = ({ children }) => {
   return (
     <>
-      <header>
+      <Header>
         <nav></nav>
-      </header>
+      </Header>
       <main>{children}</main>
       <footer></footer>
     </>
