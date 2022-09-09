@@ -1,1 +1,1 @@
-export { LoginPage } from "./Login";
+export { ViewLogin } from "./Login";
