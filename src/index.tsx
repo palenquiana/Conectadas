@@ -1,7 +1,7 @@
-import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Outlet, Route, Routes } from "react-router-dom";
-import App from "./App";
+import { ViewLogin } from "./components/pages";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -9,7 +9,9 @@ const root = ReactDOM.createRoot(
 root.render(
   <BrowserRouter>
     <Routes>
-      <Route path="/" element={<Outlet />}></Route>
+      <Route path="/" element={<Outlet />}>
+        <Route index element={<ViewLogin />} />
+      </Route>
     </Routes>
   </BrowserRouter>
 );
