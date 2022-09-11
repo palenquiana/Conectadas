@@ -1,18 +1,18 @@
 import { FC, ReactNode } from "react";
-import { Header, Navbar } from "..";
+import { Footer, Header, Main, Navbar } from "..";
 
 type Props = {
   children: ReactNode;
+  hideNav?: boolean;
+  page?: string;
 };
 
-const Layout: FC<Props> = ({ children }) => {
+const Layout: FC<Props> = ({ children, hideNav, page }) => {
   return (
     <>
-      <Header>
-        <Navbar />
-      </Header>
-      <main>{children}</main>
-      <footer></footer>
+      <Header>{!hideNav && <Navbar />}</Header>
+      <Main className={`page page-${page}`}>{children}</Main>
+      <Footer />
     </>
   );
 };
