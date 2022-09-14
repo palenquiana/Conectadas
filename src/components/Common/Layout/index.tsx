@@ -1,5 +1,5 @@
 import { FC, ReactNode } from "react";
-import { Header, Navbar } from "..";
+import { Footer, Header, Navbar } from "..";
 
 type Props = {
   children: ReactNode;
@@ -12,7 +12,7 @@ const Layout: FC<Props> = ({ children }) => {
         <Navbar />
       </Header>
       <main>{children}</main>
-      <footer></footer>
+      <Footer />
     </>
   );
 };
