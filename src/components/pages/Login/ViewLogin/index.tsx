@@ -3,7 +3,7 @@ import { FormLogin } from "../Form";
 
 const ViewLogin = () => {
   return (
-    <Layout hideNav page="login">
+    <Layout hideNav hideHeader page="login">
       <FormLogin />
     </Layout>
   );
