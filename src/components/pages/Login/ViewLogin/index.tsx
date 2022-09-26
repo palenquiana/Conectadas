@@ -1,5 +1,5 @@
 import { Layout } from "../../../common";
-import { FormLogin } from "../Form";
+import { FormLogin } from "../FormLogin";
 
 const ViewLogin = () => {
   return (

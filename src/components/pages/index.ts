@@ -1,1 +1,1 @@
-export { ViewLogin } from "./Login";
+export { FormLogin, ViewLogin } from "./Login";
