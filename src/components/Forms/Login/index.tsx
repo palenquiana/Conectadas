@@ -1,7 +1,21 @@
+import { FC } from "react";
 import { Button, Card, Col, Container, Form, Row } from "react-bootstrap";
+import { useForm } from "react-hook-form";
 import { NavLink } from "react-router-dom";
+import { LoginFormType } from "../../../types";
+import { defaultValues } from "./defaultValues";
+import { validationSchema } from "./validationSchema";
+import { yupResolver } from "@hookform/resolvers/yup";
+type Props = {
+  onLogin: (formData: LoginFormType) => void;
+};
 
-const FormLogin = () => {
+const Login: FC<Props> = ({ onLogin }) => {
+  const { register, handleSubmit, formState } = useForm<LoginFormType>({
+    resolver: yupResolver(validationSchema),
+    defaultValues,
+  });
+
   return (
     <>
       <Container>
@@ -9,20 +23,22 @@ const FormLogin = () => {
           <Col lg="4">
             <Card className="text-center p-3">
               <Card.Title className="fs-2 m-4">Conectadas</Card.Title>
-              <Form>
+              <Form onSubmit={handleSubmit(onLogin)}>
                 <Form.Group className="mb-3">
                   <Form.Control
-                    type="text"
+                    type="email"
                     placeholder="Ingrese su correo electrónico"
-                    name="name"
+                    {...register("email")}
                   />
+                  {formState.errors.email?.message}
                 </Form.Group>
                 <Form.Group className="mb-3">
                   <Form.Control
                     type="password"
                     placeholder="Ingrese su contraseña"
-                    name="pass"
+                    {...register("pass")}
                   />
+                  {formState.errors.pass?.message}
                 </Form.Group>
                 <Button type="submit">Ingresar</Button>
               </Form>
@@ -45,4 +61,4 @@ const FormLogin = () => {
     </>
   );
 };
-export { FormLogin };
+export { Login };

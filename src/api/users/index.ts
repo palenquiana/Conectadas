@@ -1,4 +1,4 @@
-import { User, UserPayload } from "../../types/users";
+import { User, UserPayload } from "../../types";
 import { mapToArray } from "../helpers";
 
 const add = async (user: UserPayload) => {
