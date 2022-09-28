@@ -7,3 +7,8 @@ export type User = {
 };
 
 export type UserPayload = Omit<User, "id"> & { pass: string };
+
+export type LoginFormType = {
+  email: string;
+  pass: string;
+};

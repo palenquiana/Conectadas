@@ -1,10 +1,14 @@
+import { LoginFormType } from "../../../../types";
 import { Layout } from "../../../common";
-import { FormLogin } from "../Form";
+import { Login } from "../../../Forms/Login";
 
 const ViewLogin = () => {
+  const onSubmit = (formData: LoginFormType) => {};
   return (
-    <Layout hideNav hideHeader page="login">
-      <FormLogin />
+
+    <Layout hideNav page="login">
+      <Login onLogin={onSubmit} />
+
     </Layout>
   );
 };
