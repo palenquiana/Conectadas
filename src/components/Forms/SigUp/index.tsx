@@ -16,9 +16,11 @@ const SigUp = () => {
         <Container>
           <Row className="justify-content-center mt-5">
             <Col lg="7">
-              <Card className="text-center p-3">
-                <Card.Title className="fs-2 m-4">Conectadas</Card.Title>
-                <Card.Title className="fs-4 mt-2 text-secondary">
+              <Card className="text-center p-3 ">
+                <Card.Title className="fs-2 mt-2 mb-2 title">
+                  Conectadas
+                </Card.Title>
+                <Card.Title className="fs-4 mt-1 mb-3 text-secondary">
                   Registrate para ver fotos y videos de tus amigxs
                 </Card.Title>
 

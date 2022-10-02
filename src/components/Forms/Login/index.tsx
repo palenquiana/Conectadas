@@ -24,7 +24,7 @@ const Login: FC<Props> = ({ onLogin }) => {
           <Row className="justify-content-center mt-5">
             <Col lg="4">
               <Card className="text-center p-3">
-                <Card.Title className="fs-2 m-4">Conectadas</Card.Title>
+                <Card.Title className="fs-2 m-4 title">Conectadas</Card.Title>
                 <Form onSubmit={handleSubmit(onLogin)}>
                   <Form.Group className="mb-3">
                     <Form.Control
