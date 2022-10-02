@@ -1,2 +1,2 @@
-export { mapToArray } from "./helpers";
+export { mapToArray } from "../helpers";
 export { usersApi } from "./users";
