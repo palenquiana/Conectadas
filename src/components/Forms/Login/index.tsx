@@ -49,7 +49,7 @@ const Login: FC<Props> = ({ onLogin }) => {
                 ¿No tenés una cuenta?
                 <NavLink
                   className="stretched-link ms-1 fw-semibold text-decoration-none"
-                  to="/register"
+                  to="/sigup"
                 >
                   Registrate
                 </NavLink>
