@@ -2,13 +2,18 @@ import { FC } from "react";
 import { Button, Card, Col, Container, Form, Row } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { NavLink } from "react-router-dom";
-import { LoginFormType, SigUpType } from "../../../types";
+import { SigUpType } from "../../../types";
 import { yupResolver } from "@hookform/resolvers/yup";
-// type Props = {
-//   onLogin: (formData: SigUpType) => void;
-// };
+import { defaultValues } from "./defaultValues";
+type Props = {
+  onSigUp: (formData: SigUpType) => void;
+};
 
-const SigUp = () => {
+const SigUp: FC<Props> = ({ onSigUp }) => {
+  const { register, handleSubmit, formState } = useForm<SigUpType>({
+    resolver: yupResolver(validationSchema),
+    defaultValues,
+  });
   return (
     <>
       <Container>
