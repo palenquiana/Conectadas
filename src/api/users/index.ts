@@ -1,68 +1,31 @@
-// const add = async (user: UserPayload) => {
-//   const options = {
-//     method: "POST",
-//     body: JSON.stringify(user),
-//     Headers: {
-//       contentType: "application/json",
-//     },
-//   };
+import { SigUpType, UserPayload } from "../../types";
+import { mapToArray } from "../../helpers";
+import { apiDB } from "../../utils";
 
-//   const response = await fetch(
-//     "https://conectadas-5487f-default-rtdb.firebaseio.com/users.json",
-//     options
-//   );
-//   const data = await response.json();
-
-//   return mapToArray(data);
-// };
-
-// const getAll = async (): Promise<User[]> => {
-//   const response = await fetch(
-//     "https://conectadas-5487f-default-rtdb.firebaseio.com/users.json"
-//   );
-//   const data = await response.json();
-
-//   return mapToArray(data);
-// };
-
-export const get = async (id: string) => {
-  const response = await fetch(
-    `https://conectadas-5487f-default-rtdb.firebaseio.com/users/${id}.json`
-  );
-  const data = await response.json();
-
-  return data;
+const add = async (user: UserPayload) => {
+  apiDB.post("/users.json", JSON.stringify(user));
 };
 
-// const patch = async (id: string, payload: Partial<User>) => {
-//   const options = {
-//     method: "PATCH",
-//     body: JSON.stringify(payload),
-//     Headers: {
-//       contentType: "application/json",
-//     },
-//   };
+const getAll = async (): Promise<SigUpType[]> => {
+  const response = await apiDB.get("/users.json");
+  return mapToArray(response.data);
+};
 
-//   const response = await fetch(
-//     `https://conectadas-5487f-default-rtdb.firebaseio.com/users/${id}.json`,
-//     options
-//   );
-//   const data = await response.json();
+const get = async (id: string) => {
+  const response = await apiDB.get(`users/${id}.json`);
 
-//   return mapToArray(data);
-// };
+  return mapToArray(response.data);
+};
 
-// const remove = async (id: string) => {
-//   const options = {
-//     method: "DELETE",
-//   };
+const patch = async (id: string, payload: Partial<SigUpType>) => {
+  const response = await apiDB.patch(`/users/${id}.json`, payload);
 
-//   const response = await fetch(
-//     `https://conectadas-5487f-default-rtdb.firebaseio.com/users/${id}.json`,
-//     options
-//   );
-//   const data = await response.json();
+  return mapToArray(response.data);
+};
 
-//   return data;
-// };
-// export const usersApi = { add, getAll, get, remove, patch };
+const remove = async (id: string) => {
+  const response = await apiDB.delete(`/users/${id}.json`);
+
+  return response.data;
+};
+export const usersApi = { add, getAll, get, remove, patch };

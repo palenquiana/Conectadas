@@ -12,6 +12,7 @@ export type SigUpType = {
   sessionToken: string;
   status: string;
 };
+export type UserPayload = Omit<SigUpType, "id" | "sessionToken">;
 
 export type LoginFormType = {
   email: string;
