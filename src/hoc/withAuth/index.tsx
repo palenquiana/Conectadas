@@ -1,10 +1,17 @@
 import { FC } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "src/hook";
 const publicRoutes = ["/login", "/sigup"];
 
 const withAuth = (Component: FC): FC => {
   const Autenticated: FC = (): any => {
-    const {} = useAuth();
+    const { me } = useAuth();
+
+    const location = useLocation();
+    const navigate = useNavigate();
+    if (me && publicRoutes.includes(location.pathname)) {
+      navigate("/wall");
+    }
     return <Component />;
   };
   return Autenticated;

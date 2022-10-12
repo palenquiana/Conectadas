@@ -1,9 +1,9 @@
 import { usersApi } from "@api";
-import { LoginFormType } from "@types";
+import { LoginFormType, User } from "@types";
 import { useEffect, useState } from "react";
 
 const useAuth = () => {
-  const [me, setMe] = useState();
+  const [me, setMe] = useState<User>();
   useEffect(() => {
     loginWithToken();
   }, []);
@@ -22,7 +22,7 @@ const useAuth = () => {
       const token = await setUserToken(logged.id);
       if (token) {
         localStorage.setItem("user-token", token);
-        // setMe(logged);
+        setMe(logged);
       }
     }
   };
@@ -32,7 +32,7 @@ const useAuth = () => {
     const storedToken = localStorage.getItem("user-token");
     const logged = users.find((user) => user.sessionToken === storedToken);
     if (!me && logged) {
-      // setMe(logged);
+      setMe(logged);
     }
   };
   const logout = () => {

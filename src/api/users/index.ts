@@ -1,10 +1,8 @@
-
-import { SigUpType, UserPayload } from "@types";
+import { SignUpPayload, User } from "@types";
 import { mapToArray } from "@api";
 import { apiDB } from "@utils";
 
-
-const add = async (user: UserPayload) => {
+const add = async (user: SignUpPayload) => {
   apiDB.post("/users.json", JSON.stringify(user));
 };
 
@@ -19,7 +17,7 @@ const get = async (id: string) => {
   return mapToArray(response.data);
 };
 
-const patch = async (id: string, payload: Partial<SigUpType>) => {
+const patch = async (id: string, payload: Partial<User>) => {
   const response = await apiDB.patch(`/users/${id}.json`, payload);
 
   return mapToArray(response.data);

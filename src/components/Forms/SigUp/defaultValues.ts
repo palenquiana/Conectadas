@@ -1,5 +1,5 @@
-import { SigUpType } from "../../../types";
-export const defaultValues: SigUpType = {
+import { User } from "../../../types";
+export const defaultValues: User = {
   avatar: "",
   birthdate: new Date(),
   city: "",
