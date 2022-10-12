@@ -9,7 +9,7 @@ export type SigUpType = {
   lastname: string;
   name: string;
   password: string;
-  sessionToken: string;
+  sessionToken: string | null;
   status: string;
 };
 export type UserPayload = Omit<SigUpType, "id" | "sessionToken">;
