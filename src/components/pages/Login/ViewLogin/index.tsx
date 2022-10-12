@@ -5,7 +5,9 @@ import { Login } from "../../../Forms/Login";
 const ViewLogin = () => {
   const onSubmit = (formData: LoginFormType) => {};
   return (
-    <Layout hideNav page="login">
+
+    <Layout hideHeader hideNav page="login">
+
       <Login onLogin={onSubmit} />
     </Layout>
   );

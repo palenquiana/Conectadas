@@ -9,10 +9,19 @@ const Header: FC<Props> = ({ children }) => {
 
   return (
     <>
-      <header className="navbar-brand">
-        <button onClick={() => navigate("/wall", { replace: true })}></button>
+      <header className="navbar-brand ">
+        <div>
+          <h1 className="title d-inline-flex me-5 ">
+            <button
+              onClick={() => navigate("/wall", { replace: true })}
+              className="btn fs-1"
+            >
+              Conectadas
+            </button>
+          </h1>
 
-        {children}
+          {children}
+        </div>
       </header>
     </>
   );

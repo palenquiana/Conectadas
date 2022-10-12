@@ -3,12 +3,14 @@ import { Button, Card, Col, Container, Form, Row } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { NavLink } from "react-router-dom";
 import { yupResolver } from "@hookform/resolvers/yup";
+
 import { defaultValues } from "./defaultValues";
 import { validationSchema } from "./validationSchema";
 import { SignUpPayload } from "../../../types";
 type Props = {
   onSigUp: (formData: SignUpPayload) => void;
 };
+
 
 const SigUp: FC<Props> = ({ onSigUp }) => {
   const { register, handleSubmit, formState } = useForm<SignUpPayload>({
@@ -17,14 +19,18 @@ const SigUp: FC<Props> = ({ onSigUp }) => {
   });
   return (
     <>
-      <Container>
-        <Row className="justify-content-center mt-5">
-          <Col lg="7">
-            <Card className="text-center p-3">
-              <Card.Title className="fs-2 m-4">Conectadas</Card.Title>
-              <Card.Title className="fs-4 mt-2 text-secondary">
-                Registrate para ver fotos y videos de tus amigxs
-              </Card.Title>
+      <Layout hideHeader hideNav page="sigup">
+        <Container>
+          <Row className="justify-content-center mt-5">
+            <Col lg="7">
+              <Card className="text-center p-3 ">
+                <Card.Title className="fs-2 mt-2 mb-2 title">
+                  Conectadas
+                </Card.Title>
+                <Card.Title className="fs-4 mt-1 mb-3 text-secondary">
+                  Registrate para ver fotos y videos de tus amigxs
+                </Card.Title>
+
 
               <Form onSubmit={handleSubmit(onSigUp)}>
                 <Row>
@@ -90,24 +96,26 @@ const SigUp: FC<Props> = ({ onSigUp }) => {
                   </Col>
                 </Row>
 
-                <Button type="submit">Ingresar</Button>
-              </Form>
-            </Card>
 
-            <Card className="mt-3 p-2 text-center">
-              <Card.Text>
-                ¿Ya tenés una cuenta?
-                <NavLink
-                  className="stretched-link ms-1 fw-semibold text-decoration-none"
-                  to="/sigup"
-                >
-                  Ingresá
-                </NavLink>
-              </Card.Text>
-            </Card>
-          </Col>
-        </Row>
-      </Container>
+                  <Button type="submit">Ingresar</Button>
+                </Form>
+              </Card>
+
+              <Card className="mt-3 p-2 text-center">
+                <Card.Text>
+                  ¿Ya tenés una cuenta?
+                  <NavLink
+                    className="stretched-link ms-1 fw-semibold text-decoration-none"
+                    to="/sigup"
+                  >
+                    Ingresá
+                  </NavLink>
+                </Card.Text>
+              </Card>
+            </Col>
+          </Row>
+        </Container>
+      </Layout>
     </>
   );
 };
