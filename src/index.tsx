@@ -11,8 +11,9 @@ root.render(
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<Outlet />}>
-        <Route index element={<ViewLogin />} />
-        <Route path="sigup" element={<SigUp />} />
+
+        <Route path="login" element={<ViewLogin />} />
+
       </Route>
     </Routes>
   </BrowserRouter>

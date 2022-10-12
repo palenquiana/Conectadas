@@ -2,7 +2,7 @@ import { FC } from "react";
 import { Button, Card, Col, Container, Form, Row } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { NavLink } from "react-router-dom";
-import { LoginFormType } from "../../../types";
+import { LoginFormType } from "@types";
 import { defaultValues } from "./defaultValues";
 import { validationSchema } from "./validationSchema";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -50,7 +50,7 @@ const Login: FC<Props> = ({ onLogin }) => {
                 ¿No tenés una cuenta?
                 <NavLink
                   className="stretched-link ms-1 fw-semibold text-decoration-none"
-                  to="/register"
+                  to="/sigup"
                 >
                   Registrate
                 </NavLink>

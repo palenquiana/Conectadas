@@ -1,12 +1,14 @@
-import { SigUpType, UserPayload } from "../../types";
-import { mapToArray } from "../../helpers";
-import { apiDB } from "../../utils";
+
+import { SigUpType, UserPayload } from "@types";
+import { mapToArray } from "@api";
+import { apiDB } from "@utils";
+
 
 const add = async (user: UserPayload) => {
   apiDB.post("/users.json", JSON.stringify(user));
 };
 
-const getAll = async (): Promise<SigUpType[]> => {
+const getAll = async (): Promise<User[]> => {
   const response = await apiDB.get("/users.json");
   return mapToArray(response.data);
 };

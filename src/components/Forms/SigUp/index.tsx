@@ -2,14 +2,21 @@ import { FC } from "react";
 import { Button, Card, Col, Container, Form, Row } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { NavLink } from "react-router-dom";
-import { LoginFormType, SigUpType } from "../../../types";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { Layout } from "../../common";
-// type Props = {
-//   onLogin: (formData: SigUpType) => void;
-// };
 
-const SigUp = () => {
+import { defaultValues } from "./defaultValues";
+import { validationSchema } from "./validationSchema";
+import { SignUpPayload } from "../../../types";
+type Props = {
+  onSigUp: (formData: SignUpPayload) => void;
+};
+
+
+const SigUp: FC<Props> = ({ onSigUp }) => {
+  const { register, handleSubmit, formState } = useForm<SignUpPayload>({
+    resolver: yupResolver(validationSchema),
+    defaultValues,
+  });
   return (
     <>
       <Layout hideHeader hideNav page="sigup">
@@ -24,54 +31,71 @@ const SigUp = () => {
                   Registrate para ver fotos y videos de tus amigxs
                 </Card.Title>
 
-                <Form>
-                  <Row>
-                    <Col>
-                      <Form.Group className="mb-3">
-                        <Form.Control
-                          type="text"
-                          placeholder="Ingresá tu nombre"
-                        />
-                      </Form.Group>
-                      <Form.Group className="mb-3">
-                        <Form.Control
-                          type="email"
-                          placeholder="Ingresá tu correo electrónico"
-                        />
-                      </Form.Group>
-                      <Form.Group className="mb-3">
-                        <Form.Select aria-label="Seleccione su provincia"></Form.Select>
-                      </Form.Group>
-                    </Col>
-                    <Col>
-                      <Form.Group className="mb-3">
-                        <Form.Control
-                          type="text"
-                          placeholder="Ingresá tu apellido"
-                        />
-                      </Form.Group>
-                      <Form.Group className="mb-3">
-                        <Form.Control
-                          type="password"
-                          placeholder="Ingrese su contraseña"
-                        />
-                      </Form.Group>
-                      <Form.Group className="mb-3">
-                        <Form.Select aria-placeholder="Seleccioná tu ciudad"></Form.Select>
-                      </Form.Group>
-                    </Col>
-                    <Col>
-                      <Form.Group className="mb-3">
-                        <Form.Control
-                          type="date"
-                          placeholder="Seleccioná tu fecha de nacimiento"
-                        />
-                      </Form.Group>
-                      <Form.Group className="mb-3">
-                        <Form.Select aria-label="Seleccioná tu país"></Form.Select>
-                      </Form.Group>
-                    </Col>
-                  </Row>
+
+              <Form onSubmit={handleSubmit(onSigUp)}>
+                <Row>
+                  <Col>
+                    <Form.Group className="mb-3">
+                      <Form.Control
+                        type="text"
+                        placeholder="Ingresá tu nombre"
+                        {...register("name")}
+                      />
+                      {formState.errors.name?.message}
+                    </Form.Group>
+                    <Form.Group className="mb-3">
+                      <Form.Control
+                        type="email"
+                        placeholder="Ingresá tu correo electrónico"
+                        {...register("email")}
+                      />
+                      {formState.errors.email?.message}
+                    </Form.Group>
+                    <Form.Group className="mb-3">
+                      <Form.Select
+                        aria-label="Seleccioná tu ciudad"
+                        {...register("city")}
+                      ></Form.Select>
+                      {formState.errors.city?.message}
+                    </Form.Group>
+                  </Col>
+                  <Col>
+                    <Form.Group className="mb-3">
+                      <Form.Control
+                        type="text"
+                        placeholder="Ingresá tu apellido"
+                        {...register("lastname")}
+                      />
+                      {formState.errors.lastname?.message}
+                    </Form.Group>
+                    <Form.Group className="mb-3">
+                      <Form.Control
+                        type="password"
+                        placeholder="Ingrese su contraseña"
+                        {...register("password")}
+                      />
+                      {formState.errors.password?.message}
+                    </Form.Group>
+                  </Col>
+                  <Col>
+                    <Form.Group className="mb-3">
+                      <Form.Control
+                        type="date"
+                        placeholder="Seleccioná tu fecha de nacimiento"
+                        {...register("birthdate")}
+                      />
+                      {formState.errors.birthdate?.message}
+                    </Form.Group>
+                    <Form.Group className="mb-3">
+                      <Form.Select
+                        aria-label="Seleccioná tu país"
+                        {...register("country")}
+                      ></Form.Select>
+                      {formState.errors.country?.message}
+                    </Form.Group>
+                  </Col>
+                </Row>
+
 
                   <Button type="submit">Ingresar</Button>
                 </Form>
