@@ -3,7 +3,7 @@ import { createContext, FC, ReactNode, useState } from "react";
 
 type AuthContenteType = {
   me?: User;
-  setCurrentUser?: (user: User) => void;
+  setCurrentUser: (user?: User) => void;
 };
 const AuthContext = createContext<AuthContenteType>({
   me: undefined,
@@ -15,7 +15,7 @@ type Props = {
 };
 const AuthProvider: FC<Props> = ({ children }) => {
   const [me, setMe] = useState<User>();
-  const setCurrentUser = (newUser: User) => {
+  const setCurrentUser = (newUser?: User) => {
     setMe(newUser);
   };
 

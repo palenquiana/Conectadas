@@ -1,9 +1,10 @@
 import { usersApi } from "@api";
 import { LoginFormType, User } from "@types";
-import { useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
+import { AuthContext } from "../../context";
 
 const useAuth = () => {
-  const [me, setMe] = useState<User>();
+  const { me, setCurrentUser } = useContext(AuthContext);
   useEffect(() => {
     loginWithToken();
   }, []);
@@ -22,7 +23,7 @@ const useAuth = () => {
       const token = await setUserToken(logged.id);
       if (token) {
         localStorage.setItem("user-token", token);
-        setMe(logged);
+        setCurrentUser(logged);
       }
     }
   };
@@ -32,11 +33,12 @@ const useAuth = () => {
     const storedToken = localStorage.getItem("user-token");
     const logged = users.find((user) => user.sessionToken === storedToken);
     if (!me && logged) {
-      setMe(logged);
+      setCurrentUser(logged);
     }
   };
   const logout = () => {
-    const resp = usersApi.patch("sadasd", { sessionToken: null });
+    usersApi.patch("sadasd", { sessionToken: null });
+    setCurrentUser(undefined);
   };
 
   return { login, logout, me };
