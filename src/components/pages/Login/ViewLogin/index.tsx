@@ -1,10 +1,12 @@
 import { LoginFormType } from "@types";
 import { Layout } from "../../../common";
 import { Login } from "../../../Forms/Login";
+import { useAuth } from "../../../../hook";
 
 const ViewLogin = () => {
+  const { login } = useAuth();
   const onSubmit = (formData: LoginFormType) => {
-    console.log(formData);
+    login(formData);
   };
   return (
     <Layout hideNav page="login">
