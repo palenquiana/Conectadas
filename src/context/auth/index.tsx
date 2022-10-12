@@ -7,7 +7,7 @@ type AuthContenteType = {
 };
 const AuthContext = createContext<AuthContenteType>({
   me: undefined,
-  setCurrentUser: undefined,
+  setCurrentUser: () => {},
 });
 
 type Props = {
