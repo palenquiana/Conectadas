@@ -34,6 +34,6 @@ const useAuth = () => {
     const resp = usersApi.patch("sadasd", { sessionToken: null });
   };
 
-  return { login };
+  return { login, logout };
 };
 export { useAuth };
