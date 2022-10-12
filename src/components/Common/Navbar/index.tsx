@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 const Navbar = () => {
   return (
     <>
-      <Nav className="justify-content-end">
+      <Nav className="d-inline-flex ">
         <NavLink className="nav-link" to="/wall">
           Inicio
         </NavLink>

@@ -9,7 +9,9 @@ const ViewLogin = () => {
     login(formData);
   };
   return (
-    <Layout hideNav page="login">
+
+    <Layout hideHeader hideNav page="login">
+
       <Login onLogin={onSubmit} />
     </Layout>
   );
