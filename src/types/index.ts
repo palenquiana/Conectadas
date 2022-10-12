@@ -1,4 +1,4 @@
-export type SigUpType = {
+export type User = {
   avatar?: string;
   birthdate: Date;
   city: string;
@@ -12,7 +12,7 @@ export type SigUpType = {
   sessionToken: string;
   status: string;
 };
-export type UserPayload = Omit<SigUpType, "id" | "sessionToken">;
+export type SignUpPayload = Omit<User, "id" | "sessionToken">;
 
 export type LoginFormType = {
   email: string;
