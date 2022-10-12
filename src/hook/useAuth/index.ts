@@ -31,7 +31,7 @@ const useAuth = () => {
     const logged = users.find((user) => user.sessionToken === storedToken);
   };
   const logout = () => {
-    const resp = usersApi.patch("sadasd", { sessionToken: null });
+    usersApi.patch("sadasd", { sessionToken: null });
   };
 
   return { login, logout };
