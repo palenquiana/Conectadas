@@ -6,6 +6,7 @@ import { LoginFormType } from "@types";
 import { defaultValues } from "./defaultValues";
 import { validationSchema } from "./validationSchema";
 import { yupResolver } from "@hookform/resolvers/yup";
+
 type Props = {
   onLogin: (formData: LoginFormType) => void;
 };
@@ -21,8 +22,8 @@ const Login: FC<Props> = ({ onLogin }) => {
       <Container>
         <Row className="justify-content-center mt-5">
           <Col lg="4">
-            <Card className="text-center p-3">
-              <Card.Title className="fs-2 m-4">Conectadas</Card.Title>
+            <Card className="text-center p-3 mt-5">
+              <Card.Title className="fs-2 m-4 title">Conectadas</Card.Title>
               <Form onSubmit={handleSubmit(onLogin)}>
                 <Form.Group className="mb-3">
                   <Form.Control
@@ -49,7 +50,7 @@ const Login: FC<Props> = ({ onLogin }) => {
                 ¿No tenés una cuenta?
                 <NavLink
                   className="stretched-link ms-1 fw-semibold text-decoration-none"
-                  to="/register"
+                  to="/sigup"
                 >
                   Registrate
                 </NavLink>
