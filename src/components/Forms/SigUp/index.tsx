@@ -16,103 +16,102 @@ const SigUp: FC<Props> = ({ onSigUp }) => {
     resolver: yupResolver(validationSchema),
     defaultValues,
   });
+
   return (
     <>
-      <Layout hideHeader hideNav page="sigup">
-        <Container>
-          <Row className="justify-content-center mt-5">
-            <Col lg="7">
-              <Card className="text-center p-3 ">
-                <Card.Title className="fs-2 mt-2 mb-2 title">
-                  Conectadas
-                </Card.Title>
-                <Card.Title className="fs-4 mt-1 mb-3 text-secondary">
-                  Registrate para ver fotos y videos de tus amigxs
-                </Card.Title>
+      <Container>
+        <Row className="justify-content-center mt-5">
+          <Col lg="7">
+            <Card className="text-center p-3 ">
+              <Card.Title className="fs-2 mt-2 mb-2 title">
+                Conectadas
+              </Card.Title>
+              <Card.Title className="fs-4 mt-1 mb-3 text-secondary">
+                Registrate para ver fotos y videos de tus amigxs
+              </Card.Title>
 
-                <Form onSubmit={handleSubmit(onSigUp)}>
-                  <Row>
-                    <Col>
-                      <Form.Group className="mb-3">
-                        <Form.Control
-                          type="text"
-                          placeholder="Ingresá tu nombre"
-                          {...register("name")}
-                        />
-                        {formState.errors.name?.message}
-                      </Form.Group>
-                      <Form.Group className="mb-3">
-                        <Form.Control
-                          type="email"
-                          placeholder="Ingresá tu correo electrónico"
-                          {...register("email")}
-                        />
-                        {formState.errors.email?.message}
-                      </Form.Group>
-                      <Form.Group className="mb-3">
-                        <Form.Select
-                          aria-label="Seleccioná tu ciudad"
-                          {...register("city")}
-                        ></Form.Select>
-                        {formState.errors.city?.message}
-                      </Form.Group>
-                    </Col>
-                    <Col>
-                      <Form.Group className="mb-3">
-                        <Form.Control
-                          type="text"
-                          placeholder="Ingresá tu apellido"
-                          {...register("lastname")}
-                        />
-                        {formState.errors.lastname?.message}
-                      </Form.Group>
-                      <Form.Group className="mb-3">
-                        <Form.Control
-                          type="password"
-                          placeholder="Ingrese su contraseña"
-                          {...register("password")}
-                        />
-                        {formState.errors.password?.message}
-                      </Form.Group>
-                    </Col>
-                    <Col>
-                      <Form.Group className="mb-3">
-                        <Form.Control
-                          type="date"
-                          placeholder="Seleccioná tu fecha de nacimiento"
-                          {...register("birthdate")}
-                        />
-                        {formState.errors.birthdate?.message}
-                      </Form.Group>
-                      <Form.Group className="mb-3">
-                        <Form.Select
-                          aria-label="Seleccioná tu país"
-                          {...register("country")}
-                        ></Form.Select>
-                        {formState.errors.country?.message}
-                      </Form.Group>
-                    </Col>
-                  </Row>
+              <Form onSubmit={handleSubmit(onSigUp)}>
+                <Row>
+                  <Col>
+                    <Form.Group className="mb-3">
+                      <Form.Control
+                        type="text"
+                        placeholder="Ingresá tu nombre"
+                        {...register("name")}
+                      />
+                      {formState.errors.name?.message}
+                    </Form.Group>
+                    <Form.Group className="mb-3">
+                      <Form.Control
+                        type="email"
+                        placeholder="Ingresá tu correo electrónico"
+                        {...register("email")}
+                      />
+                      {formState.errors.email?.message}
+                    </Form.Group>
+                    <Form.Group className="mb-3">
+                      <Form.Select
+                        aria-label="Seleccioná tu ciudad"
+                        {...register("city")}
+                      ></Form.Select>
+                      {formState.errors.city?.message}
+                    </Form.Group>
+                  </Col>
+                  <Col>
+                    <Form.Group className="mb-3">
+                      <Form.Control
+                        type="text"
+                        placeholder="Ingresá tu apellido"
+                        {...register("lastname")}
+                      />
+                      {formState.errors.lastname?.message}
+                    </Form.Group>
+                    <Form.Group className="mb-3">
+                      <Form.Control
+                        type="password"
+                        placeholder="Ingrese su contraseña"
+                        {...register("password")}
+                      />
+                      {formState.errors.password?.message}
+                    </Form.Group>
+                  </Col>
+                  <Col>
+                    <Form.Group className="mb-3">
+                      <Form.Control
+                        type="date"
+                        placeholder="Seleccioná tu fecha de nacimiento"
+                        {...register("birthdate")}
+                      />
+                      {formState.errors.birthdate?.message}
+                    </Form.Group>
+                    <Form.Group className="mb-3">
+                      <Form.Select
+                        aria-label="Seleccioná tu país"
+                        {...register("country")}
+                      ></Form.Select>
+                      {formState.errors.country?.message}
+                    </Form.Group>
+                  </Col>
+                </Row>
 
-                  <Button type="submit">Ingresar</Button>
-                </Form>
-              </Card>
+                <Button type="submit">Ingresar</Button>
+              </Form>
+            </Card>
 
-              <Card className="mt-3 p-2 text-center">
-                <Card.Text>
-                  ¿Ya tenés una cuenta?
-                  <NavLink
-                    className="stretched-link ms-1 fw-semibold text-decoration-none"
-                    to="/sigup"
-                  >
-                    Ingresá
-                  </NavLink>
-                </Card.Text>
-              </Card>
-            </Col>
-          </Row>
-        </Container>
-      </Layout>
+            <Card className="mt-3 p-2 text-center">
+              <Card.Text>
+                ¿Ya tenés una cuenta?
+                <NavLink
+                  className="stretched-link ms-1 fw-semibold text-decoration-none"
+                  to="/sigup"
+                >
+                  Ingresá
+                </NavLink>
+              </Card.Text>
+            </Card>
+          </Col>
+        </Row>
+      </Container>
     </>
   );
 };
