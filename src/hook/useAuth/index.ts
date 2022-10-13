@@ -1,5 +1,5 @@
 import { usersApi } from "@api";
-import { LoginFormType } from "@types";
+import { LoginFormType, User } from "@types";
 import { useEffect } from "react";
 
 const useAuth = () => {
@@ -13,25 +13,29 @@ const useAuth = () => {
   };
   const login = async ({ email, pass }: LoginFormType) => {
     const users = await usersApi.getAll();
-    const logged = users.find(
-      (user) => user.email === email && user.password === pass
-    );
+    if (users) {
+      const logged = users.find(
+        (user) => user.email === email && user.password === pass
+      );
 
-    if (logged) {
-      const token = await setUserToken(logged.id);
-      if (token) {
-        localStorage.setItem("user-token", token);
+      if (logged) {
+        const token = await setUserToken(logged.id);
+        if (token) {
+          localStorage.setItem("user-token", token);
+        }
       }
     }
   };
 
   const loginWithToken = async () => {
     const users = await usersApi.getAll();
-    const storedToken = localStorage.getItem("user-token");
-    const logged = users.find((user) => user.sessionToken === storedToken);
+    if (users) {
+      const storedToken = localStorage.getItem("user-token");
+      const logged = users.find((user) => user.sessionToken === storedToken);
+    }
   };
-  const logout = () => {
-    usersApi.patch("sadasd", { sessionToken: null });
+  const logout = (id: string) => {
+    usersApi.patch(id, { sessionToken: null });
   };
 
   return { login, logout };
