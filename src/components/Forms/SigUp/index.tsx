@@ -7,6 +7,7 @@ import { defaultValues } from "./defaultValues";
 import { validationSchema } from "./validationSchema";
 import { SignUpPayload, Location } from "../../../types";
 import { getLocation } from "../../../helpers";
+import { useAuth } from "src/hook";
 
 type Props = {
   onSigUp: (formData: SignUpPayload) => void;
@@ -17,6 +18,10 @@ const SigUp: FC<Props> = ({ onSigUp }) => {
     resolver: yupResolver(validationSchema),
     defaultValues,
   });
+  // const { sigup } = useAuth();
+  // const onSigUp = (formData) => {
+  //   sigup(formData);
+  // };
 
   const [locations, setLocations] = useState<Location>();
   useEffect(() => {

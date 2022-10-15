@@ -1,5 +1,5 @@
 import { usersApi } from "@api";
-import { LoginFormType, User } from "@types";
+import { LoginFormType, SignUpPayload, User } from "@types";
 import { useEffect, useState } from "react";
 
 const useAuth = () => {
@@ -37,7 +37,10 @@ const useAuth = () => {
   const logout = (id: string) => {
     usersApi.patch(id, { sessionToken: null });
   };
+  const sigup = async (user: SignUpPayload) => {
+    const addUser = await usersApi.add(user);
+  };
 
-  return { login, logout };
+  return { login, logout, sigup };
 };
 export { useAuth };
