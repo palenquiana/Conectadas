@@ -6,7 +6,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { defaultValues } from "./defaultValues";
 import { validationSchema } from "./validationSchema";
 import { SignUpPayload } from "../../../types";
-import { Layout } from "@components/common";
+
 type Props = {
   onSigUp: (formData: SignUpPayload) => void;
 };
