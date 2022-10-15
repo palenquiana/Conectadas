@@ -27,8 +27,8 @@ const SigUp: FC<Props> = ({ onSigUp }) => {
 
   return (
     <>
-      <Container className="mt-5">
-        <Row className="justify-content-center ">
+      <Container>
+        <Row className="justify-content-center mt-5">
           <Col lg="7">
             <Card className="text-center p-3 ">
               <Card.Title className="fs-2 mt-2 mb-2 title">
