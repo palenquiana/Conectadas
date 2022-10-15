@@ -1,5 +1,5 @@
+import { mapToArray } from "@helpers";
 import { SignUpPayload, User } from "@types";
-import { mapToArray } from "@api";
 import { apiDB } from "@utils";
 
 const add = async (user: SignUpPayload) => {
