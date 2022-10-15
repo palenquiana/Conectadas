@@ -1,11 +1,13 @@
-import { FC } from "react";
+import { FC, useEffect, useState } from "react";
 import { Button, Card, Col, Container, Form, Row } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { NavLink } from "react-router-dom";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { defaultValues } from "./defaultValues";
 import { validationSchema } from "./validationSchema";
-import { SignUpPayload } from "../../../types";
+import { SignUpPayload, Location } from "../../../types";
+import { getLocation } from "@helpers";
+
 type Props = {
   onSigUp: (formData: SignUpPayload) => void;
 };
@@ -16,10 +18,17 @@ const SigUp: FC<Props> = ({ onSigUp }) => {
     defaultValues,
   });
 
+  const [locations, setLocations] = useState<Location>();
+  useEffect(() => {
+    getLocation().then((data) => {
+      setLocations(data);
+    });
+  }, []);
+
   return (
     <>
-      <Container>
-        <Row className="justify-content-center mt-5">
+      <Container className="mt-5">
+        <Row className="justify-content-center ">
           <Col lg="7">
             <Card className="text-center p-3 ">
               <Card.Title className="fs-2 mt-2 mb-2 title">
@@ -52,7 +61,13 @@ const SigUp: FC<Props> = ({ onSigUp }) => {
                       <Form.Select
                         aria-label="Seleccioná tu ciudad"
                         {...register("city")}
-                      ></Form.Select>
+                      >
+                        {locations?.cities.map((city) => (
+                          <option value={city} key={city}>
+                            {city}
+                          </option>
+                        ))}
+                      </Form.Select>
                       {formState.errors.city?.message}
                     </Form.Group>
                   </Col>
@@ -87,13 +102,19 @@ const SigUp: FC<Props> = ({ onSigUp }) => {
                       <Form.Select
                         aria-label="Seleccioná tu país"
                         {...register("country")}
-                      ></Form.Select>
+                      >
+                        {locations?.countries.map((country) => (
+                          <option value={country} key={country}>
+                            {country}
+                          </option>
+                        ))}
+                      </Form.Select>
                       {formState.errors.country?.message}
                     </Form.Group>
                   </Col>
                 </Row>
 
-                <Button type="submit">Ingresar</Button>
+                <Button type="submit">Registrarse</Button>
               </Form>
             </Card>
 

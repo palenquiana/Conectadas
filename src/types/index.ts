@@ -9,7 +9,7 @@ export type User = {
   lastname: string;
   name: string;
   password: string;
-  sessionToken: string;
+  sessionToken: string | null;
   status: string;
 };
 export type SignUpPayload = Omit<User, "id" | "sessionToken">;
@@ -17,4 +17,8 @@ export type SignUpPayload = Omit<User, "id" | "sessionToken">;
 export type LoginFormType = {
   email: string;
   pass: string;
+};
+export type Location = {
+  cities: string[];
+  countries: string[];
 };

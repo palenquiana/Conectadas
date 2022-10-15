@@ -8,13 +8,10 @@ export const validationSchema = yup.object().shape({
       return new Date();
     })
     .required(FORMS_MESSAGES.REQUIRED),
-  city: yup
-    .string()
-    .oneOf(["San Isidro", "Vicente López", "San Martín", "San Fernando"])
-    .label("Selected city"),
+  city: yup.string().required(FORMS_MESSAGES.REQUIRED).label("Selected city"),
   country: yup
     .string()
-    .oneOf(["Argentina", "Uruguay", "Brasil", "Colombia"])
+    .required(FORMS_MESSAGES.REQUIRED)
     .label("Selected country"),
   email: yup
     .string()
