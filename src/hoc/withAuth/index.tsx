@@ -1,11 +1,12 @@
-import { FC, useEffect } from "react";
+import { FC, useContext, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { AuthContext } from "src/context";
 import { useAuth } from "src/hook";
 const publicRoutes = ["/login", "/sigup"];
 
 const withAuth = (Component: FC): FC => {
   const Autenticated: FC = (): any => {
-    const { me } = useAuth();
+    const { me } = useContext(AuthContext);
     const location = useLocation();
     const navigate = useNavigate();
     useEffect(() => {
@@ -14,6 +15,7 @@ const withAuth = (Component: FC): FC => {
       }
       if (!me && !publicRoutes.includes(location.pathname)) navigate("/login");
       //faltan mas condiciones
+      //TODO
     }, [me]);
 
     return <Component />;
