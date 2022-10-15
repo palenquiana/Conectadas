@@ -39,6 +39,7 @@ const useAuth = () => {
   };
   const sigup = async (user: SignUpPayload) => {
     const addUser = await usersApi.add(user);
+    return addUser;
   };
 
   return { login, logout, sigup };

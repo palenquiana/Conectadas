@@ -1,9 +1,16 @@
 import { Layout } from "../../../components/common";
 import { SigUp } from "../../Forms";
 import { SignUpPayload } from "@types";
+import { useAuth } from "../../../hook";
 
 const ViewSigUp = () => {
-  const onSubmit = (formData: SignUpPayload) => {};
+  const { sigup } = useAuth();
+
+  const onSubmit = (formData: SignUpPayload) => {
+    console.log(formData);
+
+    sigup(formData);
+  };
   return (
     <>
       <Layout hideHeader hideNav>
