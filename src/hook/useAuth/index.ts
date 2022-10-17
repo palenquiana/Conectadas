@@ -45,6 +45,6 @@ const useAuth = () => {
     const addUser = await usersApi.add(user);
     return addUser;
   };
-  return { login, logout, sigup };
+  return { login, logout, sigup, me };
 };
 export { useAuth };
