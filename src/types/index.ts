@@ -23,8 +23,7 @@ export type Location = {
   countries: string[];
 };
 export type Movie = {
-  id: string;
-  user: Pick<User, "id" | "name" | "lastname">;
-  image?: string;
+  image: string;
   title: string;
+  description: string;
 };
