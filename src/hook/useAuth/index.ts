@@ -1,5 +1,5 @@
 import { usersApi } from "@api";
-import { LoginFormType, SignUpPayload, User } from "@types";
+import { LoginFormType, SignUpPayload } from "@types";
 import { useContext, useEffect } from "react";
 import { AuthContext } from "../../context";
 
