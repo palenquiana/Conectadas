@@ -6,21 +6,24 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { defaultValues } from "./defaultValues";
 import { validationSchema } from "./validationSchema";
 import { SignUpPayload, Location } from "../../../types";
-import { getLocation } from "@helpers";
+import { catchLocation } from "@helpers";
+import { DevTool } from "@hookform/devtools";
 
 type Props = {
   onSigUp: (formData: SignUpPayload) => void;
 };
 
 const SigUp: FC<Props> = ({ onSigUp }) => {
-  const { register, handleSubmit, formState } = useForm<SignUpPayload>({
-    resolver: yupResolver(validationSchema),
-    defaultValues,
-  });
+  const { register, handleSubmit, formState, control } = useForm<SignUpPayload>(
+    {
+      resolver: yupResolver(validationSchema),
+      defaultValues,
+    }
+  );
 
   const [locations, setLocations] = useState<Location>();
   useEffect(() => {
-    getLocation().then((data) => {
+    catchLocation().then((data) => {
       setLocations(data);
     });
   }, []);
@@ -132,6 +135,7 @@ const SigUp: FC<Props> = ({ onSigUp }) => {
           </Col>
         </Row>
       </Container>
+      <DevTool control={control} />
     </>
   );
 };
