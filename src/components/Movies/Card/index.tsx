@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Card, CardImg } from "react-bootstrap";
+import { Card, CardGroup, CardImg } from "react-bootstrap";
 
 type Prop = {
   image: string;
@@ -9,18 +9,18 @@ type Prop = {
 const CardMovie: FC<Prop> = ({ image, title, description }) => {
   return (
     <>
-      <Card>
-        <CardImg variant="top" src={image} />
-        <Card.Body>
-          <Card.Title>{title}</Card.Title>
-          <Card.Text>{description}</Card.Text>
-        </Card.Body>
-      </Card>
-      {/* <div className="card">
-        <img src={image} className="card-img" />
-        <h3 className="card-title">{title}</h3>
-        <p className="card-text">{description}</p>
-      </div> */}
+      <CardGroup>
+        <Card>
+          <Card.Img
+            variant="top"
+            src={`http://image.tmdb.org/t/p/w500${image}`}
+          />
+          <Card.Body>
+            <Card.Title>{title}</Card.Title>
+            <Card.Text>{description}</Card.Text>
+          </Card.Body>
+        </Card>
+      </CardGroup>
     </>
   );
 };

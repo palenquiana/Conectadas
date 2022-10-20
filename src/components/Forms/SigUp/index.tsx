@@ -6,7 +6,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { defaultValues } from "./defaultValues";
 import { validationSchema } from "./validationSchema";
 import { SignUpPayload, Location } from "../../../types";
-import { getLocation } from "@helpers";
+import { catchLocation } from "@helpers";
 
 type Props = {
   onSigUp: (formData: SignUpPayload) => void;
@@ -20,7 +20,7 @@ const SigUp: FC<Props> = ({ onSigUp }) => {
 
   const [locations, setLocations] = useState<Location>();
   useEffect(() => {
-    getLocation().then((data) => {
+    catchLocation().then((data) => {
       setLocations(data);
     });
   }, []);

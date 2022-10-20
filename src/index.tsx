@@ -17,6 +17,7 @@ root.render(
           <Route path="login" element={<ViewLogin />} />
           <Route path="sigup" element={<ViewSigUp />} />
           <Route path="movies" element={<ViewMovies />} />
+          <Route path="movies/:id" element={<ViewMovies />} />
         </Route>
       </Routes>
     </BrowserRouter>

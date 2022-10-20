@@ -1,6 +1,6 @@
-import { getPromesa } from "../api";
+import { getLocation } from "../api";
 
-export const getLocation = async () => {
-  const response = await getPromesa();
+export const catchLocation = async () => {
+  const response = await getLocation();
   return response;
 };
