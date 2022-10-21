@@ -12,7 +12,10 @@ export type User = {
   sessionToken: string | null;
   status: string;
 };
-export type SignUpPayload = Omit<User, "id" | "sessionToken">;
+export type SignUpPayload = Omit<
+  User,
+  "id" | "sessionToken" | "status" | "friends" | "avatar"
+>;
 
 export type LoginFormType = {
   email: string;
