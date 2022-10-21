@@ -7,19 +7,16 @@ import { defaultValues } from "./defaultValues";
 import { validationSchema } from "./validationSchema";
 import { SignUpPayload, Location } from "../../../types";
 import { catchLocation } from "@helpers";
-import { DevTool } from "@hookform/devtools";
 
 type Props = {
   onSigUp: (formData: SignUpPayload) => void;
 };
 
 const SigUp: FC<Props> = ({ onSigUp }) => {
-  const { register, handleSubmit, formState, control } = useForm<SignUpPayload>(
-    {
-      resolver: yupResolver(validationSchema),
-      defaultValues,
-    }
-  );
+  const { register, handleSubmit, formState } = useForm<SignUpPayload>({
+    resolver: yupResolver(validationSchema),
+    defaultValues,
+  });
 
   const [locations, setLocations] = useState<Location>();
   useEffect(() => {
@@ -126,7 +123,7 @@ const SigUp: FC<Props> = ({ onSigUp }) => {
                 ¿Ya tenés una cuenta?
                 <NavLink
                   className="stretched-link ms-1 fw-semibold text-decoration-none"
-                  to="/sigup"
+                  to="/login"
                 >
                   Ingresá
                 </NavLink>
@@ -135,7 +132,6 @@ const SigUp: FC<Props> = ({ onSigUp }) => {
           </Col>
         </Row>
       </Container>
-      <DevTool control={control} />
     </>
   );
 };
