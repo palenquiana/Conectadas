@@ -1,11 +1,11 @@
 import { moviesRequest } from "@api";
 import { Movie } from "@types";
 import { useEffect, useState } from "react";
-import { Col, Container, Form, Row } from "react-bootstrap";
+import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import { CardMovie } from "../Card";
 
 const SearchMovie = () => {
-  const [searchedMovie, setSearchedMovie] = useState<Movie[]>([]); //<Movie[]>
+  const [searchedMovie, setSearchedMovie] = useState<Movie[]>([]);
   const [query, setQuery] = useState("");
 
   useEffect(() => {
@@ -25,19 +25,25 @@ const SearchMovie = () => {
               onChange={(e) => setQuery(e.target.value)}
               value={query}
             />
-            <Row xs={1} md={2} className="g-4">
-              {searchedMovie &&
-                searchedMovie.map((movie) => (
-                  <Col>
-                    <CardMovie
-                      title={movie.title}
-                      description={movie.overview}
-                      image={movie.poster_path}
-                      key={movie.id}
-                    />
-                  </Col>
-                ))}
-            </Row>
+            <Container>
+              <Row>
+                {searchedMovie &&
+                  searchedMovie.map((movie) => (
+                    <>
+                      <CardMovie
+                        title={movie.title}
+                        description={movie.overview}
+                        image={movie.poster_path}
+                        key={movie.id}
+                      >
+                        <Button type="submit" className="btn ">
+                          Compartir
+                        </Button>
+                      </CardMovie>
+                    </>
+                  ))}
+              </Row>
+            </Container>
           </Form>
         </Col>
       </Row>
