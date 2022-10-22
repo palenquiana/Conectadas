@@ -1,26 +1,47 @@
-import { Nav } from "react-bootstrap";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faHouseChimney,
+  faArrowRightFromBracket,
+  faFilm,
+  faCircleUser,
+} from "@fortawesome/free-solid-svg-icons";
+import { Card, Nav } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
+
+import { FC } from "react";
 
 const Navbar = () => {
   return (
     <>
-      <Nav className="d-inline-flex ">
-        <NavLink className="nav-link" to="/wall">
-          Inicio
-        </NavLink>
-        <NavLink className="nav-link" to="/login">
-          Ingresar
-        </NavLink>
-        <NavLink className="nav-link" to="/register">
-          Registro
-        </NavLink>
-        <NavLink className="nav-link" to="/find">
-          Buscar amigxs
-        </NavLink>
-        <NavLink className="nav-link" to="/logout">
-          Cerrar sesión
-        </NavLink>
-      </Nav>
+      <Card className="d-inline-flex border-0 mt-3 cardNav ">
+        <Nav>
+          <NavLink className="nav-link" to="/wall">
+            <FontAwesomeIcon
+              icon={faHouseChimney}
+              className="fs-5 text-dark text-opacity-75"
+            />
+          </NavLink>
+          <NavLink className="nav-link" to="/find">
+            <FontAwesomeIcon
+              icon={faFilm}
+              className="fs-5 text-dark text-opacity-75"
+            />
+          </NavLink>
+          <NavLink className="nav-link" to="/login">
+            <FontAwesomeIcon
+              icon={faArrowRightFromBracket}
+              className="fs-5 text-dark text-opacity-75"
+            />
+          </NavLink>
+
+          <NavLink className="nav-link" to="/logout">
+            <FontAwesomeIcon
+              icon={faCircleUser}
+              className="fs-5 text-dark text-opacity-75"
+            />
+          </NavLink>
+        </Nav>
+      </Card>
     </>
   );
 };

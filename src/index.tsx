@@ -5,6 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./assets/index.css";
 import { AuthProvider } from "./context/auth";
 import { ViewSigUp } from "./components/pages";
+
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
