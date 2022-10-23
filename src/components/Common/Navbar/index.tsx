@@ -8,8 +8,6 @@ import {
 import { Card, Nav } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 
-import { FC } from "react";
-
 const Navbar = () => {
   return (
     <>
