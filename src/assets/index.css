@@ -2,3 +2,13 @@
 .title {
   font-family: "Montserrat Subrayada", sans-serif;
 }
+
+.friend-recomendation {
+  border: 0;
+  max-width: 249px;
+  min-height: 80px;
+  justify-content: center;
+  align-items: center;
+  background-color: lavender;
+  margin: 5px 0px 5px 15px;
+}

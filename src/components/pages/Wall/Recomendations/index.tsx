@@ -1,51 +1,39 @@
-import { useEffect, useState } from "react";
-import { Button, Card, Container, Form } from "react-bootstrap";
-import { User } from "@types";
-import { usersApi } from "@api";
+import { Button, Card, Container } from "react-bootstrap";
+import { useUsers } from "../../../../hook";
 
 const FriendRecomendations = () => {
-  const [userUnFollowed, setUserUnfullowed] = useState<User[]>([]);
-  // const [userFilter, setUserFilter] = useState([]);
-
-  const catchUser = async () => {
-    const response = await usersApi.getAll();
-
-    return response;
-  };
-  useEffect(() => {
-    userUnFollowed &&
-      catchUser().then((data) => {
-        setUserUnfullowed(data);
-      });
-  }, []);
+  const { userUnFollowed } = useUsers();
 
   return (
-    <Card>
-      <>
-        <Card.Title>Usuarios recomendados</Card.Title>
-        <Card.Subtitle>Seguí a personas para ver su contenido</Card.Subtitle>
-        <Card>
+    <Container className=" d-flex justify-content-center ">
+      <Card className="justify-content-center p-2">
+        <>
+          <Card.Title>Usuarios recomendados</Card.Title>
+          <Card.Subtitle>Seguí a personas para ver su contenido</Card.Subtitle>
+
           <>
             {userUnFollowed &&
               userUnFollowed.map((user) => {
                 return (
                   <>
-                    <Card>
-                      <Card.Title>{user.name}</Card.Title>
-                      <Button>+</Button>
-                      {/* <Form.Control type="text" value={user.name + user.lastname}>
-                      {user.name + user.lastname}
-                    </Form.Control>
-                    <Button>+</Button> */}
+                    <Card
+                      className="flex-row friend-recomendation "
+                      key={user.id}
+                    >
+                      <Card.Title className="me-1 text-break">
+                        {user.name + " " + user.lastname}
+                      </Card.Title>
+                      <Card className="border-0 ">
+                        <Button>+</Button>
+                      </Card>
                     </Card>
-                    ;
                   </>
                 );
               })}
           </>
-        </Card>
-      </>
-    </Card>
+        </>
+      </Card>
+    </Container>
   );
 };
 export { FriendRecomendations };
