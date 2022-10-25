@@ -17,10 +17,23 @@ const useUsers = () => {
         setUserUnfullowed(data);
       });
   }, []);
-  //   const sendUser = async (id: string, user: string, friends: string[]) => {
-  //     const resp = await usersApi;
-  //   };
+  // const singleDelete = (d: string) => {
+  //   setUserUnfullowed(userUnFollowed.filter((contact) => contact.id !== d));
+  // };
 
-  return { userUnFollowed };
+  // const [shop, setShop] = useState<User[]>([]);
+  const [newUser, setNewUser] = useState<User[]>([]);
+  const singleDelete = (user: string) => {
+    const newArr = [...userUnFollowed];
+    const index = userUnFollowed.findIndex((contact) => contact.id === user);
+    newArr.splice(index, 1).push(newUser);
+
+    setUserUnfullowed(newArr);
+    // if (newArr) {
+    //   newArr.push(newUser);
+    // }
+  };
+
+  return { userUnFollowed, singleDelete, newUser };
 };
 export { useUsers };
