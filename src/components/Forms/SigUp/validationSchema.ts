@@ -1,13 +1,7 @@
 import * as yup from "yup";
 import { FORMS_MESSAGES } from "../../../constants/forms";
 export const validationSchema = yup.object().shape({
-  avatar: yup.string().required(FORMS_MESSAGES.REQUIRED),
-  birthdate: yup
-    .date()
-    .default(function () {
-      return new Date();
-    })
-    .required(FORMS_MESSAGES.REQUIRED),
+  birthdate: yup.date().required(FORMS_MESSAGES.REQUIRED),
   city: yup.string().required(FORMS_MESSAGES.REQUIRED).label("Selected city"),
   country: yup
     .string()

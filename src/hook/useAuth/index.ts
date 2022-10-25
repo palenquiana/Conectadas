@@ -28,7 +28,6 @@ const useAuth = () => {
         }
       }
     }
-
   };
   const loginWithToken = async () => {
     const users = await usersApi.getAll();
@@ -49,6 +48,5 @@ const useAuth = () => {
     return addUser;
   };
   return { login, logout, sigup, me };
-
 };
 export { useAuth };

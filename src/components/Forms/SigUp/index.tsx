@@ -123,7 +123,7 @@ const SigUp: FC<Props> = ({ onSigUp }) => {
                 ¿Ya tenés una cuenta?
                 <NavLink
                   className="stretched-link ms-1 fw-semibold text-decoration-none"
-                  to="/sigup"
+                  to="/login"
                 >
                   Ingresá
                 </NavLink>
