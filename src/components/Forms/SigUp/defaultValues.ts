@@ -1,15 +1,10 @@
-import { User } from "../../../types";
-export const defaultValues: User = {
-  avatar: "",
+import { SignUpPayload } from "../../../types";
+export const defaultValues: SignUpPayload = {
   birthdate: new Date(),
   city: "",
   country: "",
   email: "",
-  friends: [],
-  id: "",
   lastname: "",
   name: "",
   password: "",
-  sessionToken: "",
-  status: "",
 };

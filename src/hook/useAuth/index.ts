@@ -29,7 +29,6 @@ const useAuth = () => {
       }
     }
   };
-
   const loginWithToken = async () => {
     const users = await usersApi.getAll();
     const storedToken = localStorage.getItem("user-token");
@@ -44,8 +43,8 @@ const useAuth = () => {
   };
   const sigup = async (user: SignUpPayload) => {
     const addUser = await usersApi.add(user);
+    return addUser;
   };
-
-  return { login, logout, me, sigup };
+  return { login, logout, sigup, me };
 };
 export { useAuth };

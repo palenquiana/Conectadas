@@ -1,7 +1,7 @@
 import { FC, useContext, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "src/context";
-import { useAuth } from "src/hook";
+
 const publicRoutes = ["/login", "/sigup"];
 
 const withAuth = (Component: FC): FC => {

@@ -1,11 +1,12 @@
-import { FC } from "react";
+import { FC, useEffect, useState } from "react";
 import { Button, Card, Col, Container, Form, Row } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { NavLink } from "react-router-dom";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { defaultValues } from "./defaultValues";
 import { validationSchema } from "./validationSchema";
-import { SignUpPayload } from "../../../types";
+import { SignUpPayload, Location } from "../../../types";
+import { catchLocation } from "@helpers";
 
 type Props = {
   onSigUp: (formData: SignUpPayload) => void;
@@ -16,6 +17,13 @@ const SigUp: FC<Props> = ({ onSigUp }) => {
     resolver: yupResolver(validationSchema),
     defaultValues,
   });
+
+  const [locations, setLocations] = useState<Location>();
+  useEffect(() => {
+    catchLocation().then((data) => {
+      setLocations(data);
+    });
+  }, []);
 
   return (
     <>
@@ -53,7 +61,13 @@ const SigUp: FC<Props> = ({ onSigUp }) => {
                       <Form.Select
                         aria-label="Seleccioná tu ciudad"
                         {...register("city")}
-                      ></Form.Select>
+                      >
+                        {locations?.cities.map((city) => (
+                          <option value={city} key={city}>
+                            {city}
+                          </option>
+                        ))}
+                      </Form.Select>
                       {formState.errors.city?.message}
                     </Form.Group>
                   </Col>
@@ -88,13 +102,19 @@ const SigUp: FC<Props> = ({ onSigUp }) => {
                       <Form.Select
                         aria-label="Seleccioná tu país"
                         {...register("country")}
-                      ></Form.Select>
+                      >
+                        {locations?.countries.map((country) => (
+                          <option value={country} key={country}>
+                            {country}
+                          </option>
+                        ))}
+                      </Form.Select>
                       {formState.errors.country?.message}
                     </Form.Group>
                   </Col>
                 </Row>
 
-                <Button type="submit">Ingresar</Button>
+                <Button type="submit">Registrarse</Button>
               </Form>
             </Card>
 
@@ -103,7 +123,7 @@ const SigUp: FC<Props> = ({ onSigUp }) => {
                 ¿Ya tenés una cuenta?
                 <NavLink
                   className="stretched-link ms-1 fw-semibold text-decoration-none"
-                  to="/sigup"
+                  to="/login"
                 >
                   Ingresá
                 </NavLink>
