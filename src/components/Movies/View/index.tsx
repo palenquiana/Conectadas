@@ -1,17 +1,11 @@
-
 import { Layout } from "../../common";
 
-
-
-import { SearchMovie } from "../Search";
-
+import { SearchMovies } from "../Search";
 
 const ViewMovies = () => {
-
-
   return (
     <Layout page="movies">
-      <SearchMovie />
+      <SearchMovies />
     </Layout>
   );
 };

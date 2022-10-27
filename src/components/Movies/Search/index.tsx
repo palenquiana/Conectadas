@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import { CardMovie } from "../Card";
 
-const SearchMovie = () => {
+const SearchMovies = () => {
   const [searchedMovie, setSearchedMovie] = useState<Movie[]>([]);
   const [query, setQuery] = useState("");
 
@@ -50,4 +50,4 @@ const SearchMovie = () => {
     </Container>
   );
 };
-export { SearchMovie };
+export { SearchMovies };
