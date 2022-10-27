@@ -25,3 +25,9 @@ export type Location = {
   cities: string[];
   countries: string[];
 };
+export type Movie = {
+  id: string;
+  poster_path: string;
+  title: string;
+  overview: string;
+};

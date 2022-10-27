@@ -1,1 +1,6 @@
-export { Layout, Footer, Header, Main, Navbar } from "./common";
+export { Layout } from "./common";
+export { Header } from "./common";
+export { Navbar } from "./common";
+export { Footer } from "./common";
+export { Main } from "./common";
+export { CardMovie, SearchMovie, ViewMovies } from "./Movies";
