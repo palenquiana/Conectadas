@@ -4,14 +4,14 @@ import { ViewLogin, ViewSigUp } from "./components/pages";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./assets/index.css";
 import { AuthProvider } from "./context/auth";
-import { UserProvider } from "./context";
+import { StoreProvider } from "./context";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 root.render(
   <AuthProvider>
-    <UserProvider>
+    <StoreProvider>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Outlet />}>
@@ -20,6 +20,6 @@ root.render(
           </Route>
         </Routes>
       </BrowserRouter>
-    </UserProvider>
+    </StoreProvider>
   </AuthProvider>
 );
