@@ -37,12 +37,14 @@ const useAuth = () => {
       setCurrentUser(logged);
     }
   };
+
   const logout = (id: string) => {
     usersApi.patch(id, { sessionToken: null });
     setCurrentUser(undefined);
   };
   const sigup = async (user: SignUpPayload) => {
     const addUser = await usersApi.add(user);
+
     return addUser;
   };
   return { login, logout, sigup, me };

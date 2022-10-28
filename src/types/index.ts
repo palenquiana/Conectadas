@@ -38,3 +38,9 @@ export type Post = {
   comments: Comment[];
   date: Date;
 };
+export type Movie = {
+  id: string;
+  poster_path: string;
+  title: string;
+  overview: string;
+};
