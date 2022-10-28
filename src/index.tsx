@@ -4,6 +4,7 @@ import { ViewLogin, ViewSigUp, Wall } from "./components/pages";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./assets/index.css";
 import { AuthProvider } from "./context/auth";
+import { StoreProvider } from "./context";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement

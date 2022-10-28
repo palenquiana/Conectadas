@@ -1,19 +1,16 @@
 import { Card, Container, Table, Button } from "react-bootstrap";
 import { FC } from "react";
 import { useUsers } from "../../../../hook";
-import { User } from "@types";
+
 type Prop = {
-  // userAdded: string[];
   onRemove: () => void;
 };
 const FollowedFriends: FC<Prop> = ({ onRemove }) => {
-  const { newUser } = useUsers();
-
   return (
     <Container>
       <Table>
         <tbody>
-          {newUser &&
+          {/* {newUser &&
             newUser.map((user) => {
               return (
                 <>
@@ -25,7 +22,7 @@ const FollowedFriends: FC<Prop> = ({ onRemove }) => {
                   </tr>
                 </>
               );
-            })}
+            })} */}
         </tbody>
       </Table>
     </Container>

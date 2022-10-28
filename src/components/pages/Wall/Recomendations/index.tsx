@@ -5,7 +5,7 @@ type Props = {
   onSendUser: (id: string) => void;
 };
 const FriendRecomendations: FC<Props> = ({ onSendUser }) => {
-  const { userUnFollowed, singleDelete } = useUsers();
+  const { users } = useUsers();
 
   return (
     <Container className=" d-flex justify-content-center ">
@@ -15,16 +15,16 @@ const FriendRecomendations: FC<Props> = ({ onSendUser }) => {
         <Table>
           <tbody>
             <>
-              {userUnFollowed &&
-                userUnFollowed.map((user) => {
+              {users &&
+                users.map((user) => {
                   return (
                     <>
                       <tr key={user.id}>
-                        <td>{user.name + " " + user.lastname}</td>
                         <td>
-                          <Button onClick={() => singleDelete(user.id)}>
-                            +
-                          </Button>
+                          {user.name} {user.lastname}
+                        </td>
+                        <td>
+                          <Button>+</Button>
                         </td>
                       </tr>
                     </>

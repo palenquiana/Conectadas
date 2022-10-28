@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { User } from "@types";
 import { usersApi } from "@api";
+import { StoreContext } from "src/context";
 const useUsers = () => {
-  const [userUnFollowed, setUserUnfullowed] = useState<User[]>([]);
-  // const [userFilter, setUserFilter] = useState([]);
+  const { users, userUpdate } = useContext(StoreContext);
 
   const catchUser = async () => {
     const response = await usersApi.getAll();
@@ -12,9 +12,9 @@ const useUsers = () => {
   };
 
   useEffect(() => {
-    userUnFollowed &&
+    users &&
       catchUser().then((data) => {
-        setUserUnfullowed(data);
+        userUpdate(data);
       });
   }, []);
   // const singleDelete = (d: string) => {
@@ -22,18 +22,18 @@ const useUsers = () => {
   // };
 
   // const [shop, setShop] = useState<User[]>([]);
-  const [newUser, setNewUser] = useState<User[]>([]);
-  const singleDelete = (user: string) => {
-    const newArr = [...userUnFollowed];
-    const index = userUnFollowed.findIndex((contact) => contact.id === user);
-    newArr.splice(index, 1).push(newUser);
+  // const [newUser, setNewUser] = useState<User[]>([]);
+  // const singleDelete = (user: string) => {
+  //   const newArr = [...userUnFollowed];
+  //   const index = userUnFollowed.findIndex((contact) => contact.id === user);
+  //   newArr.splice(index, 1).push(newUser);
 
-    setUserUnfullowed(newArr);
-    // if (newArr) {
-    //   newArr.push(newUser);
-    // }
-  };
+  //   setUserUnfullowed(newArr);
+  //   // if (newArr) {
+  //   //   newArr.push(newUser);
+  //   // }
+  // };
 
-  return { userUnFollowed, singleDelete, newUser };
+  return { users };
 };
 export { useUsers };
