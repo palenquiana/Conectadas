@@ -44,3 +44,4 @@ export type Movie = {
   title: string;
   overview: string;
 };
+export type PostPayload = Omit<Post, "id"> & { date: new () => Date };
