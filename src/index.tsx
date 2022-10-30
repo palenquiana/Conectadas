@@ -6,6 +6,7 @@ import "./assets/index.css";
 import { AuthProvider } from "./context/auth";
 import { StoreProvider } from "./context";
 import { ViewMovies } from "./components";
+import { Wall } from "./components/pages";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -16,10 +17,10 @@ root.render(
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Outlet />}>
+            <Route index element={<Wall />} />
             <Route path="login" element={<ViewLogin />} />
             <Route path="sigup" element={<ViewSigUp />} />
             <Route path="movies" element={<ViewMovies />} />
-            <Route path="movies/:id" element={<ViewMovies />} />
           </Route>
         </Routes>
       </BrowserRouter>

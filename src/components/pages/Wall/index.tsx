@@ -1,5 +1,6 @@
-import { Layout } from "@components/common";
+import { Layout } from "../../common";
 import { Col, Container, Row } from "react-bootstrap";
+import { CreatePost, SharePublication } from "../../Posts";
 
 const Wall = () => {
   return (
@@ -7,7 +8,10 @@ const Wall = () => {
       <Container>
         <Row>
           <Col></Col>
-          <Col></Col>
+          <Col>
+            <CreatePost />
+            <SharePublication />
+          </Col>
         </Row>
       </Container>
     </Layout>

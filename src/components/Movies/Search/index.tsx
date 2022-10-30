@@ -1,12 +1,15 @@
 import { moviesRequest } from "@api";
-import { Movie } from "@types";
+import { Movie, PostPayload } from "@types";
 import { useEffect, useState } from "react";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
+import { useAuth, usePost } from "../../../hook";
 import { CardMovie } from "../Card";
 
 const SearchMovies = () => {
   const [searchedMovie, setSearchedMovie] = useState<Movie[]>([]);
   const [query, setQuery] = useState("");
+  const { sendPost } = usePost();
+  const { me } = useAuth();
 
   useEffect(() => {
     query &&
@@ -25,26 +28,41 @@ const SearchMovies = () => {
               onChange={(e) => setQuery(e.target.value)}
               value={query}
             />
-            <Container>
-              <Row>
-                {searchedMovie &&
-                  searchedMovie.map((movie) => (
-                    <>
-                      <CardMovie
-                        title={movie.title}
-                        description={movie.overview}
-                        image={movie.poster_path}
-                        key={movie.id}
-                      >
-                        <Button type="submit" className="btn ">
-                          Compartir
-                        </Button>
-                      </CardMovie>
-                    </>
-                  ))}
-              </Row>
-            </Container>
           </Form>
+          <Container>
+            <Row>
+              {searchedMovie &&
+                searchedMovie.map((movie) => (
+                  <CardMovie
+                    title={movie.title}
+                    description={movie.overview}
+                    image={movie.poster_path}
+                    key={movie.id}
+                  >
+                    <Button
+                      type="button"
+                      className="btn"
+                      onClick={() =>
+                        me &&
+                        sendPost({
+                          title: movie.title,
+                          date: new Date(),
+                          detail: movie.overview,
+                          image: movie.poster_path,
+                          user: {
+                            id: me.id,
+                            lastname: me.lastname,
+                            name: me.name,
+                          },
+                        })
+                      }
+                    >
+                      Compartir
+                    </Button>
+                  </CardMovie>
+                ))}
+            </Row>
+          </Container>
         </Col>
       </Row>
     </Container>
