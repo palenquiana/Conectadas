@@ -4,23 +4,14 @@ import { ViewLogin, ViewSigUp, Wall } from "./components/pages";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./assets/index.css";
 import { AuthProvider } from "./context/auth";
-
-
-
 import { StoreProvider } from "./context";
-
 import { ViewMovies } from "./components";
-import { Wall } from "./components/pages";
-
-
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 root.render(
   <AuthProvider>
-
-
     <StoreProvider>
       <BrowserRouter>
         <Routes>
@@ -33,7 +24,5 @@ root.render(
         </Routes>
       </BrowserRouter>
     </StoreProvider>
-
-
   </AuthProvider>
 );
