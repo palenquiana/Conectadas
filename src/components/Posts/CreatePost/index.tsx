@@ -17,19 +17,24 @@ const CreatePost = () => {
         <Row>
           <Col>
             <Form onSubmit={handleSubmit(sendPost)}>
-              <Card>
+              <Card className="p-3 ">
                 <Card.Title>¿Qué te gustaría compartirnos?</Card.Title>
-                <Form.Control
-                  type="text"
-                  placeholder="Ingresa el título de tu publicación"
-                  {...register("title")}
-                ></Form.Control>
-                <Form.Control
-                  as="textarea"
-                  rows={3}
-                  {...register("detail")}
-                ></Form.Control>
-                <Button type="submit">Publicar</Button>
+                <Card.Body>
+                  <Form.Control
+                    type="text"
+                    className="mb-2"
+                    placeholder="Ingresa el título de tu publicación"
+                    {...register("title")}
+                  ></Form.Control>
+                  <Form.Control
+                    as="textarea"
+                    rows={3}
+                    {...register("detail")}
+                  ></Form.Control>
+                  <Card className="d-inline-flex border-0 mt-2">
+                    <Button type="submit">Publicar</Button>
+                  </Card>
+                </Card.Body>
               </Card>
             </Form>
           </Col>

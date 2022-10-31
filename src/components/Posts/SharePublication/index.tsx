@@ -33,11 +33,12 @@ const SharePublication = () => {
     <>
       {posts &&
         posts?.map((post) => (
-          <Card key={post.id}>
+          <Card key={post.id} className=" card-post border-0">
             <>
               {post.image && (
                 <Card.Img
                   src={`http://image.tmdb.org/t/p/w500${post.image}`}
+                  className="img"
                 ></Card.Img>
               )}
 
@@ -50,21 +51,36 @@ const SharePublication = () => {
                 <Card.Subtitle>{post.date.toString()}</Card.Subtitle>
                 <Card.Text>{post.detail}</Card.Text>
               </Card.Body>
-              <Form onSubmit={handleSubmit((data) => onSubmit(data, post))}>
-                <Form.Control
-                  type="text"
-                  placeholder="Agregá un comentario"
-                  {...register("text")}
-                ></Form.Control>
-                <Button type="submit">Enviar</Button>
-              </Form>
 
               {post?.comments?.map((coment) => {
-                <Card>
-                  <Card.Body>{coment.text}</Card.Body>
-                </Card>;
+                return (
+                  <Card
+                    className="mt-2 mb-2 bg-comment m-5"
+                    key={Math.random() * parseInt(post.date.toString(), 10)}
+                  >
+                    <Card.Header>{coment.date.toString()}</Card.Header>
+                    <Card.Body className="card-comment">
+                      <Card.Title className=" me-2">
+                        {coment.user.name} {coment.user.lastname}
+                      </Card.Title>
+                      <Card.Text>
+                        {"-"} {coment.text}
+                      </Card.Text>
+                    </Card.Body>
+                  </Card>
+                );
               })}
             </>
+            <Form onSubmit={handleSubmit((data) => onSubmit(data, post))}>
+              <Form.Control
+                type="text"
+                placeholder="Agregá un comentario"
+                {...register("text")}
+              ></Form.Control>
+              <Button type="submit" className="mt-2 mb-2">
+                Enviar
+              </Button>
+            </Form>
           </Card>
         ))}
     </>
