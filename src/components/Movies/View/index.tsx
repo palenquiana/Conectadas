@@ -1,5 +1,4 @@
 import { Layout } from "../../common";
-
 import { SearchMovies } from "../Search";
 
 const ViewMovies = () => {

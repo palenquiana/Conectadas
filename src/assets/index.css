@@ -2,9 +2,23 @@
 .title {
   font-family: "Montserrat Subrayada", sans-serif;
 }
+
 .cardNav {
   margin-left: 700px;
 }
+
+
+
+.friend-recomendation {
+  border: 0;
+  max-width: 249px;
+  min-height: 80px;
+  justify-content: center;
+  align-items: center;
+  background-color: lavender;
+  margin: 5px 0px 5px 15px;
+
+
 .img {
   width: 250px;
   height: 250px;
@@ -12,5 +26,30 @@
 }
 .card-movie {
   max-width: 350px;
+  min-height: 300px;
+
+}
+.bg-comment {
+  background-color: #f8f9fa;
+}
+.card-comment {
+  height: 60px;
+  width: 800px;
+  display: flex;
+  flex-direction: row;
+}
+.card-header {
+  /* width: 40px; */
+  height: 20px;
+  font-size: 12px;
+  padding-bottom: 20px;
+}
+.bg-post {
+  background-color: cornsilk;
+}
+.card-post {
+  margin-top: 10px;
+  display: flex;
+  min-width: 923px;
   min-height: 300px;
 }
