@@ -25,10 +25,12 @@ export type Location = {
   cities: string[];
   countries: string[];
 };
+
 export type Comments = {
   user: Pick<User, "id" | "name" | "lastname">;
   text: string;
   date: Date;
+
 };
 export type Post = {
   id: string;
@@ -36,13 +38,16 @@ export type Post = {
   image?: string;
   title: string;
   detail: string;
+
   comments: Comments[];
   date: Date;
 };
+
 export type Movie = {
   id: string;
   poster_path: string;
   title: string;
   overview: string;
+
 };
 export type PostPayload = Omit<Post, "id" | "comments">;
