@@ -5,10 +5,13 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./assets/index.css";
 import { AuthProvider } from "./context/auth";
 
+
+
 import { StoreProvider } from "./context";
 
 import { ViewMovies } from "./components";
 import { Wall } from "./components/pages";
+
 
 
 const root = ReactDOM.createRoot(
@@ -16,6 +19,7 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <AuthProvider>
+
 
     <StoreProvider>
       <BrowserRouter>
@@ -29,6 +33,7 @@ root.render(
         </Routes>
       </BrowserRouter>
     </StoreProvider>
+
 
   </AuthProvider>
 );

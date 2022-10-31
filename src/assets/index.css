@@ -3,6 +3,11 @@
   font-family: "Montserrat Subrayada", sans-serif;
 }
 
+.cardNav {
+  margin-left: 700px;
+}
+
+
 
 .friend-recomendation {
   border: 0;
@@ -12,6 +17,7 @@
   align-items: center;
   background-color: lavender;
   margin: 5px 0px 5px 15px;
+
 
 .img {
   width: 250px;
