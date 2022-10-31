@@ -26,9 +26,10 @@
   font-size: 12px;
   padding-bottom: 20px;
 }
-
-.card-post {
+.bg-post {
   background-color: cornsilk;
+}
+.card-post {
   margin-top: 10px;
   display: flex;
   min-width: 923px;

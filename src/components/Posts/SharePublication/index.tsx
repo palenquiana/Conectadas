@@ -33,7 +33,7 @@ const SharePublication = () => {
     <>
       {posts &&
         posts?.map((post) => (
-          <Card key={post.id} className=" card-post border-0">
+          <Card key={post.id} className=" card-post border-0 bg-post ">
             <>
               {post.image && (
                 <Card.Img
@@ -55,7 +55,7 @@ const SharePublication = () => {
               {post?.comments?.map((coment) => {
                 return (
                   <Card
-                    className="mt-2 mb-2 bg-comment m-5"
+                    className="mt-2 mb-1 bg-comment m-5"
                     key={Math.random() * parseInt(post.date.toString(), 10)}
                   >
                     <Card.Header>{coment.date.toString()}</Card.Header>
@@ -71,15 +71,18 @@ const SharePublication = () => {
                 );
               })}
             </>
+
             <Form onSubmit={handleSubmit((data) => onSubmit(data, post))}>
-              <Form.Control
-                type="text"
-                placeholder="Agregá un comentario"
-                {...register("text")}
-              ></Form.Control>
-              <Button type="submit" className="mt-2 mb-2">
-                Enviar
-              </Button>
+              <Card className="border-0 mb-3 bg-post flex-row  p-4">
+                <Form.Control
+                  type="text"
+                  placeholder="Agregá un comentario"
+                  {...register("text")}
+                ></Form.Control>
+                <Button type="submit" className="mt-2 ms-2">
+                  Enviar
+                </Button>
+              </Card>
             </Form>
           </Card>
         ))}
