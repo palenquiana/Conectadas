@@ -1,10 +1,8 @@
 import { FC } from "react";
 import { Button, Card, Container, Table } from "react-bootstrap";
 import { useUsers } from "../../../../hook";
-type Props = {
-  onSendUser: (id: string) => void;
-};
-const FriendRecomendations: FC<Props> = ({ onSendUser }) => {
+
+const FriendRecomendations = () => {
   const { users } = useUsers();
 
   return (
