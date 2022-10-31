@@ -5,3 +5,12 @@
 .cardNav {
   margin-left: 700px;
 }
+.img {
+  width: 250px;
+  height: 250px;
+  margin: 30px 0px 5px 50px;
+}
+.card-movie {
+  max-width: 350px;
+  min-height: 300px;
+}

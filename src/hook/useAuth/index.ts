@@ -29,7 +29,6 @@ const useAuth = () => {
       }
     }
   };
-
   const loginWithToken = async () => {
     const users = await usersApi.getAll();
     const storedToken = localStorage.getItem("user-token");
@@ -38,14 +37,16 @@ const useAuth = () => {
       setCurrentUser(logged);
     }
   };
+
   const logout = (id: string) => {
     usersApi.patch(id, { sessionToken: null });
     setCurrentUser(undefined);
   };
   const sigup = async (user: SignUpPayload) => {
     const addUser = await usersApi.add(user);
-  };
 
-  return { login, logout, me, sigup };
+    return addUser;
+  };
+  return { login, logout, sigup, me };
 };
 export { useAuth };
