@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { Button, Card, Container, Table } from "react-bootstrap";
-import { useUsers } from "../../../../hook";
+import { useUsers } from "../../../../hooks";
 
 const FriendRecomendations = () => {
   const { users } = useUsers();

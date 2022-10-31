@@ -1,6 +1,6 @@
 import { FC, useContext, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { AuthContext } from "src/context";
+import { AuthContext } from "@contexts";
 
 const publicRoutes = ["/login", "/sigup"];
 

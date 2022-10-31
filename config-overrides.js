@@ -7,7 +7,7 @@ module.exports = override(
     "@common": path.resolve(__dirname, "src/components/common"),
     "@components/*": path.resolve(__dirname, "src/components/*"),
     "@constants": path.resolve(__dirname, "src/constants"),
-    "@contexts": path.resolve(__dirname, "src/contexts"),
+    "@contexts/*": path.resolve(__dirname, "src/contexts/*"),
     "@forms": path.resolve(__dirname, "src/components/forms"),
     "@helpers": path.resolve(__dirname, "src/helpers"),
     "@hoc": path.resolve(__dirname, "src/hoc"),

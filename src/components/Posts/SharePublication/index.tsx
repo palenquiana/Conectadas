@@ -1,7 +1,7 @@
 import { Post } from "@types";
 import { Button, Card, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
-import { usePost, useAuth } from "../../../hook";
+import { usePost, useAuth } from "../../../hooks";
 
 const SharePublication = () => {
   const { posts, upgradePost } = usePost();

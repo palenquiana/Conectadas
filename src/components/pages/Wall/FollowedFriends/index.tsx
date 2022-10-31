@@ -1,6 +1,6 @@
 import { Card, Container, Table, Button } from "react-bootstrap";
 import { FC } from "react";
-import { useUsers } from "../../../../hook";
+import { useUsers } from "../../../../hooks";
 
 type Prop = {
   onRemove: () => void;
