@@ -23,3 +23,27 @@
   min-height: 300px;
 
 }
+.bg-comment {
+  background-color: #f8f9fa;
+}
+.card-comment {
+  height: 60px;
+  width: 800px;
+  display: flex;
+  flex-direction: row;
+}
+.card-header {
+  /* width: 40px; */
+  height: 20px;
+  font-size: 12px;
+  padding-bottom: 20px;
+}
+.bg-post {
+  background-color: cornsilk;
+}
+.card-post {
+  margin-top: 10px;
+  display: flex;
+  min-width: 923px;
+  min-height: 300px;
+}

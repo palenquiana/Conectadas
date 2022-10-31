@@ -2,32 +2,37 @@ import { Post, User } from "@types";
 import { createContext, FC, ReactNode, useState } from "react";
 
 type StoreType = {
-  users: User[];
-  userUpdate: (user: User[]) => void;
-  posts: Post[];
-  postUpdate: (post: Post[]) => void;
+
+  posts?: Post[];
+  postsUpdate: (post: Post[]) => void;
+  users?: User[];
+  usersUpdate: (user: User[]) => void;
 };
 const StoreContext = createContext<StoreType>({
-  users: [],
+  
   posts: [],
-  userUpdate: () => {},
-  postUpdate: () => {},
+  postsUpdate: () => {},
+  users: [],
+  usersUpdate: () => {},
+
 });
 type Props = {
   children: ReactNode;
 };
+
+
 const StoreProvider: FC<Props> = ({ children }) => {
-  const [users, setUsers] = useState<User[]>([]);
-  const [posts, setPost] = useState<Post[]>([]);
-  const userUpdate = (user: User[]) => {
+  const [posts, setPosts] = useState<Post[]>();
+  const [users, setUsers] = useState<User[]>();
+  const postsUpdate = (post: Post[]) => {
+    setPosts(post);
+  };
+  const usersUpdate = (user: User[]) => {
     setUsers(user);
   };
-  const postUpdate = (post: Post[]) => {
-    setPost(post);
-  };
-
   return (
-    <StoreContext.Provider value={{ users, posts, userUpdate, postUpdate }}>
+    <StoreContext.Provider value={{ users, posts, usersUpdate, postsUpdate }}>
+
       {children}
     </StoreContext.Provider>
   );
