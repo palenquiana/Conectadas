@@ -10,7 +10,7 @@ const ViewSigUp = () => {
   };
   return (
     <>
-      <Layout>
+      <Layout hideHeader hideNav>
         <SigUp onSigUp={onSubmit} />
       </Layout>
     </>
