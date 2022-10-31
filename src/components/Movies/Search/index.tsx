@@ -2,7 +2,7 @@ import { moviesRequest } from "@api";
 import { Movie, PostPayload } from "@types";
 import { useEffect, useState } from "react";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
-import { useAuth, usePost } from "../../../hook";
+import { useAuth, usePost } from "@hooks";
 import { CardMovie } from "../Card";
 
 const SearchMovies = () => {
