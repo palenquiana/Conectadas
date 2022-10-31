@@ -25,6 +25,7 @@ export type Location = {
   cities: string[];
   countries: string[];
 };
+
 export type Comment = {
   user: Pick<User, "id" | "name" | "lastname">;
   text: string;
@@ -37,4 +38,11 @@ export type Post = {
   detail: string;
   comments: Comment[];
   date: Date;
+
+export type Movie = {
+  id: string;
+  poster_path: string;
+  title: string;
+  overview: string;
+
 };
