@@ -4,12 +4,12 @@
 }
 
 .cardNav {
-  margin-left: 700px;
+  margin-left: 650px;
 }
 
 .friend-recomendation {
   border: 0;
-  max-width: 249px;
+  min-width: 249px;
   min-height: 80px;
   justify-content: center;
   align-items: center;
@@ -36,17 +36,16 @@
   flex-direction: row;
 }
 .card-header {
-  /* width: 40px; */
   height: 20px;
   font-size: 12px;
   padding-bottom: 20px;
 }
 .bg-post {
-  background-color: cornsilk;
+  background-color: #f8f9fa;
 }
 .card-post {
   margin-top: 10px;
   display: flex;
-  min-width: 923px;
+  min-width: 250px;
   min-height: 300px;
 }

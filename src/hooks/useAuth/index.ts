@@ -1,7 +1,7 @@
 import { usersApi } from "@api";
 import { LoginFormType, SignUpPayload } from "@types";
 import { useContext, useEffect } from "react";
-import { AuthContext } from "@contexts";
+import { AuthContext } from "../../contexts";
 
 const useAuth = () => {
   const { me, setCurrentUser } = useContext(AuthContext);

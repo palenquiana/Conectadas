@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { usersApi } from "@api";
-import { StoreContext } from "@contexts";
+import { StoreContext } from "../../contexts";
 
 const useUsers = () => {
   const { users, usersUpdate } = useContext(StoreContext);

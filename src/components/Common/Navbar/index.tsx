@@ -16,26 +16,26 @@ const Navbar = () => {
           <NavLink className="nav-link" to="/wall">
             <FontAwesomeIcon
               icon={faHouseChimney}
-              className="fs-3 text-dark text-opacity-75"
+              className="fs-4 text-dark text-opacity-75"
             />
           </NavLink>
           <NavLink className="nav-link" to="/movies">
             <FontAwesomeIcon
               icon={faFilm}
-              className="fs-3 text-dark text-opacity-75"
+              className="fs-4 text-dark text-opacity-75"
             />
           </NavLink>
           <NavLink className="nav-link" to="/logout">
             <FontAwesomeIcon
               icon={faArrowRightFromBracket}
-              className="fs-3 text-dark text-opacity-75"
+              className="fs-4 text-dark text-opacity-75"
             />
           </NavLink>
 
           <NavLink className="nav-link" to="/user">
             <FontAwesomeIcon
               icon={faCircleUser}
-              className="fs-3 text-dark text-opacity-75"
+              className="fs-4 text-dark text-opacity-75"
             />
           </NavLink>
         </Nav>

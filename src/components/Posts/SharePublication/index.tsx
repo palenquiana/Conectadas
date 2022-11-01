@@ -49,7 +49,9 @@ const SharePublication = () => {
                 </Card.Title>
                 <Card.Title className="f-2">{post.title}</Card.Title>
                 <Card.Subtitle>{post.date.toString()}</Card.Subtitle>
-                <Card.Text>{post.detail}</Card.Text>
+                <Card.Text className={post.image ? " " : " fs-4"}>
+                  {post.detail}
+                </Card.Text>
               </Card.Body>
 
               {post?.comments?.map((coment) => {

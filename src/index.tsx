@@ -2,9 +2,9 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter, Outlet, Route, Routes } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./assets/index.css";
-import { StoreProvider, AuthProvider } from "@contexts";
-import { ViewLogin, Wall, LogOut, ViewSigUp } from "@components/pages";
-import { ViewMovies } from "@components/Movies";
+import { StoreProvider, AuthProvider } from "./contexts";
+import { ViewLogin, Wall, LogOut, ViewSigUp } from "./components";
+import { ViewMovies } from "./components";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement

@@ -1,7 +1,7 @@
 import { postRequest } from "@api";
 import { Post, PostPayload } from "@types";
 import { useContext, useEffect } from "react";
-import { StoreContext } from "@contexts";
+import { StoreContext } from "../../contexts";
 
 const usePost = () => {
   const { posts, postsUpdate } = useContext(StoreContext);
