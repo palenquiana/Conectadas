@@ -1,7 +1,7 @@
 import { Layout } from "../../common";
 import { SigUp } from "../../Forms";
 import { SignUpPayload } from "@types";
-import { useAuth } from "../../../hook";
+import { useAuth } from "../../../hooks";
 import { useNavigate } from "react-router-dom";
 
 const ViewSigUp = () => {

@@ -1,7 +1,7 @@
 import { LoginFormType } from "@types";
 import { Layout } from "../../../common";
 import { Login } from "../../../Forms/Login";
-import { useAuth } from "../../../../hook";
+import { useAuth } from "../../../../hooks";
 
 const ViewLogin = () => {
   const { login } = useAuth();

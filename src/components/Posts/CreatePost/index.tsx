@@ -1,7 +1,7 @@
 import { PostPayload } from "@types";
 import { Button, Card, Col, Container, Form, Row } from "react-bootstrap";
 import { useForm } from "react-hook-form";
-import { usePost } from "../../../hook";
+import { usePost } from "../../../hooks";
 import { defaultValues } from "./defaultValues";
 
 const CreatePost = () => {
