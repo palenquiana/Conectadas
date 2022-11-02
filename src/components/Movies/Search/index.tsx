@@ -40,7 +40,7 @@ const SearchMovies = () => {
             <Form.Control
               type="text"
               placeholder="Buscar película"
-              value={query}
+              value={params.get("movie") || ""}
               onChange={(e) => {
                 setQuery(e.target.value);
                 params.set("movie", e.target.value);
@@ -84,8 +84,8 @@ const SearchMovies = () => {
           </Container>
           <PaginationMovie
             current={Number(params.get("page"))}
-            onChangePage={() => onSwitchPage}
-            total={1000}
+            onChangePage={() => onSwitchPage(page)}
+            total={2}
           />
         </Col>
       </Row>
