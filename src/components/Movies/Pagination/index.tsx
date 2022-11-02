@@ -1,24 +1,35 @@
+import { FC } from "react";
 import { Card, Pagination } from "react-bootstrap";
 
-const PaginationMovie = () => {
+type Props = {
+  total: number;
+  current: number;
+  onChangePage: (page: number) => void;
+};
+
+const PaginationMovie: FC<Props> = ({ total, current, onChangePage }) => {
   return (
     <Card className="mt-3 border-0 ">
-      <Pagination>
+      <Pagination onClick={() => onChangePage(1)}>
         <Pagination.First />
-        <Pagination.Prev />
-        <Pagination.Item>{1}</Pagination.Item>
-        <Pagination.Ellipsis />
+        <Pagination.Prev onClick={() => onChangePage(current - 1)} />
+        <Pagination.Item onClick={() => onChangePage(current - 1)}>
+          {current - 1}
+        </Pagination.Item>
+        <Pagination.Item onClick={() => onChangePage(current - 2)}>
+          {current - 2}
+        </Pagination.Item>
+        <Pagination.Item disabled>{current}</Pagination.Item>
 
-        <Pagination.Item>{10}</Pagination.Item>
-        <Pagination.Item>{11}</Pagination.Item>
-        <Pagination.Item active>{12}</Pagination.Item>
-        <Pagination.Item>{13}</Pagination.Item>
-        <Pagination.Item disabled>{14}</Pagination.Item>
+        <Pagination.Item onClick={() => onChangePage(current + 1)}>
+          {current + 1}
+        </Pagination.Item>
+        <Pagination.Item onClick={() => onChangePage(current + 2)}>
+          {current + 2}
+        </Pagination.Item>
 
-        <Pagination.Ellipsis />
-        <Pagination.Item>{20}</Pagination.Item>
-        <Pagination.Next />
-        <Pagination.Last />
+        <Pagination.Next onClick={() => onChangePage(current + 1)} />
+        <Pagination.Last onClick={() => onChangePage(total)} />
       </Pagination>
     </Card>
   );

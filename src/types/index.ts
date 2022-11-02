@@ -30,7 +30,6 @@ export type Comments = {
   user: Pick<User, "id" | "name" | "lastname">;
   text: string;
   date: Date;
-
 };
 export type Post = {
   id: string;
@@ -48,6 +47,6 @@ export type Movie = {
   poster_path: string;
   title: string;
   overview: string;
-
+  total_pages: number;
 };
 export type PostPayload = Omit<Post, "id" | "comments">;

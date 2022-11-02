@@ -1,23 +1,37 @@
 import { moviesRequest } from "@api";
-import { Movie, PostPayload } from "@types";
+import { Movie } from "@types";
 import { useEffect, useState } from "react";
-import { Button, Col, Container, Form, Row } from "react-bootstrap";
+import { Button, Col, Container, Form, PageItem, Row } from "react-bootstrap";
+import { useSearchParams } from "react-router-dom";
 import { useAuth, usePost } from "../../../hooks";
 import { CardMovie } from "../Card";
 import { PaginationMovie } from "../Pagination";
 
 const SearchMovies = () => {
-  const [searchedMovie, setSearchedMovie] = useState<Movie[]>([]);
-  const [query, setQuery] = useState("");
-  const { sendPost } = usePost();
   const { me } = useAuth();
+  const { sendPost } = usePost();
+  const [searchedMovie, setSearchedMovie] = useState<Movie[]>();
+  const [query, setQuery] = useState("");
+  const [page, setPage] = useState(1);
+  const [params, setParams] = useSearchParams();
 
   useEffect(() => {
     query &&
-      moviesRequest.searchMovies(query, "1").then((data) => {
-        setSearchedMovie(data.results);
-      });
-  }, [query]);
+      moviesRequest
+        .searchMovies(
+          params.get("movie") || "",
+          params.get("page") ? Number(params.get("page")) : 1
+        )
+        .then((data) => {
+          setSearchedMovie(data.results);
+        });
+  }, [query, params]);
+
+  const onSwitchPage = (page: number) => {
+    setPage(page);
+    params.set("page", page.toString());
+    setParams(params);
+  };
   return (
     <Container>
       <Row>
@@ -26,8 +40,12 @@ const SearchMovies = () => {
             <Form.Control
               type="text"
               placeholder="Buscar película"
-              onChange={(e) => setQuery(e.target.value)}
-              value={query}
+              value={params.get("movie") || ""}
+              onChange={(e) => {
+                setQuery(e.target.value);
+                params.set("movie", e.target.value);
+                setParams(params);
+              }}
             />
           </Form>
           <Container>
@@ -64,9 +82,13 @@ const SearchMovies = () => {
                 ))}
             </Row>
           </Container>
+          <PaginationMovie
+            current={Number(params.get("page"))}
+            onChangePage={() => onSwitchPage(page)}
+            total={2}
+          />
         </Col>
       </Row>
-      <PaginationMovie />
     </Container>
   );
 };
