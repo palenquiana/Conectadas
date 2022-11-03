@@ -29,7 +29,11 @@ export type Location = {
 export type Comments = {
   user: Pick<User, "id" | "name" | "lastname">;
   text: string;
-  date: Date;
+  date: {
+    day: Date | string;
+    month: Date | string;
+    year: Date | string;
+  };
 };
 export type Post = {
   id: string;
@@ -37,9 +41,12 @@ export type Post = {
   image?: string;
   title: string;
   detail: string;
-
   comments: Comments[];
-  date: Date;
+  date: {
+    day: Date | string;
+    month: Date | string;
+    year: Date | string;
+  };
 };
 
 export type Movie = {
