@@ -7,6 +7,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { Card, Nav } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
+import { Wall } from "../../pages";
 
 const Navbar = () => {
   return (
@@ -19,6 +20,7 @@ const Navbar = () => {
               className="fs-4 text-dark text-opacity-75"
             />
           </NavLink>
+
           <NavLink className="nav-link" to="/movies">
             <FontAwesomeIcon
               icon={faFilm}

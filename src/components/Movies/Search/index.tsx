@@ -1,8 +1,8 @@
 import { moviesRequest } from "@api";
 import { Movie } from "@types";
 import { useEffect, useState } from "react";
-import { Button, Col, Container, Form, PageItem, Row } from "react-bootstrap";
-import { useSearchParams } from "react-router-dom";
+import { Button, Col, Container, Form, Row } from "react-bootstrap";
+import { NavLink, useSearchParams } from "react-router-dom";
 import { useAuth, usePost } from "../../../hooks";
 import { CardMovie } from "../Card";
 import { PaginationMovie } from "../Pagination";
@@ -80,7 +80,9 @@ const SearchMovies = () => {
                         })
                       }
                     >
-                      Compartir
+                      <NavLink to={"/wall"} className="nav-link">
+                        Compartir
+                      </NavLink>
                     </Button>
                   </CardMovie>
                 ))}
@@ -89,7 +91,7 @@ const SearchMovies = () => {
           <PaginationMovie
             current={Number(params.get("page"))}
             onChangePage={() => onSwitchPage(page)}
-            total={2}
+            total={1000}
           />
         </Col>
       </Row>
