@@ -9,5 +9,9 @@ export const defaultValues: PostPayload = {
   image: "",
   title: "",
   detail: "",
-  date: new Date(),
+  date: {
+    day: new Date().getDay().toLocaleString(),
+    month: new Date().getMonth().toLocaleString(),
+    year: new Date().getFullYear().toLocaleString(),
+  },
 };

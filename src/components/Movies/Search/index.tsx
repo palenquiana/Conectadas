@@ -65,7 +65,11 @@ const SearchMovies = () => {
                         me &&
                         sendPost({
                           title: movie.title,
-                          date: new Date(),
+                          date: {
+                            day: new Date().getDay().toLocaleString(),
+                            month: new Date().getMonth().toLocaleString(),
+                            year: new Date().getFullYear().toLocaleString(),
+                          },
                           detail: movie.overview,
                           image: movie.poster_path,
                           user: {

@@ -11,7 +11,6 @@ const SharePublication = () => {
   });
 
   const onSubmit = (data: { text: string }, post: Post) => {
-    console.log(data);
     me &&
       upgradePost(post.id, {
         comments: [
@@ -23,7 +22,11 @@ const SharePublication = () => {
               lastname: me.lastname,
               name: me.name,
             },
-            date: new Date(),
+            date: {
+              day: new Date().getDay().toLocaleString(),
+              month: new Date().getMonth().toLocaleString(),
+              year: new Date().getFullYear().toLocaleString(),
+            },
           },
         ],
       });
@@ -48,7 +51,15 @@ const SharePublication = () => {
                   {post.user.lastname || me?.lastname}
                 </Card.Title>
                 <Card.Title className="f-2">{post.title}</Card.Title>
-                <Card.Subtitle>{post.date.toString()}</Card.Subtitle>
+                <Card.Subtitle>
+                  <>
+                    {post.date.day}
+                    {"/"}
+                    {post.date.month}
+                    {"/"}
+                    {post.date.year}
+                  </>
+                </Card.Subtitle>
                 <Card.Text className={post.image ? " " : " fs-4"}>
                   {post.detail}
                 </Card.Text>
@@ -60,7 +71,15 @@ const SharePublication = () => {
                     className="mt-2 mb-1 bg-comment m-5"
                     key={Math.random() * parseInt(post.date.toString(), 10)}
                   >
-                    <Card.Header>{coment.date.toString()}</Card.Header>
+                    <Card.Header>
+                      <>
+                        {coment.date.day}
+                        {"/"}
+                        {coment.date.month}
+                        {"/"}
+                        {coment.date.year}
+                      </>
+                    </Card.Header>
                     <Card.Body className="card-comment">
                       <Card.Title className=" me-2">
                         {coment.user.name} {coment.user.lastname}
