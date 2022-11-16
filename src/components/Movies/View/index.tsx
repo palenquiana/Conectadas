@@ -1,3 +1,4 @@
+import { withAuth } from "@hoc";
 import { Layout } from "../../common";
 import { SearchMovies } from "../Search";
 
@@ -8,4 +9,4 @@ const ViewMovies = () => {
     </Layout>
   );
 };
-export { ViewMovies };
+export const Movies = withAuth(ViewMovies);

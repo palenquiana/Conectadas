@@ -1,4 +1,4 @@
 export { Layout, Footer, Header, Main, Navbar } from "./common";
-export { CardMovie, SearchMovies, ViewMovies } from "./Movies";
+export { CardMovie, SearchMovies, Movies } from "./Movies";
 export { CreatePost, SharePublication } from "./Posts";
-export { Wall, ViewLogin, ViewSigUp } from "./pages";
+export { Wall, LoginPage, SigUpPage } from "./pages";

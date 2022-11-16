@@ -3,8 +3,8 @@ import { BrowserRouter, Outlet, Route, Routes } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./assets/index.css";
 import { StoreProvider, AuthProvider } from "./contexts";
-import { ViewLogin, Wall, ViewSigUp } from "./components";
-import { ViewMovies } from "./components";
+import { LoginPage, Wall, SigUpPage } from "./components";
+import { Movies } from "./components";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -17,9 +17,9 @@ root.render(
           <Route path="/" element={<Outlet />}>
             <Route index element={<Wall />} />
             <Route path="wall" element={<Wall />} />
-            <Route path="login" element={<ViewLogin />} />
-            <Route path="sigup" element={<ViewSigUp />} />
-            <Route path="movies" element={<ViewMovies />} />
+            <Route path="login" element={<LoginPage />} />
+            <Route path="sigup" element={<SigUpPage />} />
+            <Route path="movies" element={<Movies />} />
           </Route>
         </Routes>
       </BrowserRouter>

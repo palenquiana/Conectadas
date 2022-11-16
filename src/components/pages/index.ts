@@ -1,3 +1,3 @@
-export { ViewLogin } from "./Login";
-export { ViewSigUp } from "./SigUp";
+export { LoginPage } from "./Login";
+export { SigUpPage } from "./SigUp";
 export { Wall } from "./Wall";

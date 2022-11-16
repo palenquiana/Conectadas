@@ -1,4 +1,3 @@
-import { useAuth } from "../../hooks";
 import { FC, useContext, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts";
@@ -8,7 +7,6 @@ const publicRoutes = ["/login", "/sigup"];
 const withAuth = (Component: FC): FC => {
   const Autenticated: FC = (): any => {
     const { me } = useContext(AuthContext);
-    const { loginWithToken } = useAuth();
     const location = useLocation();
     const navigate = useNavigate();
     useEffect(() => {
@@ -16,9 +14,6 @@ const withAuth = (Component: FC): FC => {
         navigate("/wall");
       }
       if (!me && !publicRoutes.includes(location.pathname)) navigate("/login");
-      
-
-    
     }, [me]);
 
     return <Component />;
