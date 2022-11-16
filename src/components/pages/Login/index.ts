@@ -1,1 +1,0 @@
-export { ViewLogin } from "./ViewLogin";

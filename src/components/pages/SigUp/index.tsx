@@ -3,6 +3,7 @@ import { SigUp } from "../../Forms";
 import { SignUpPayload } from "@types";
 import { useAuth } from "../../../hooks";
 import { useNavigate } from "react-router-dom";
+import { withAuth } from "@hoc";
 
 const ViewSigUp = () => {
   const { sigup } = useAuth();
@@ -19,4 +20,4 @@ const ViewSigUp = () => {
     </>
   );
 };
-export { ViewSigUp };
+export const SigUpPage = withAuth(ViewSigUp);

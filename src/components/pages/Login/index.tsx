@@ -1,8 +1,9 @@
 import { LoginFormType } from "@types";
-import { Layout } from "../../../common";
-import { Login } from "../../../Forms/Login";
-import { useAuth } from "../../../../hooks";
+import { Layout } from "../../common";
+import { Login } from "../../Forms/Login";
+import { useAuth } from "../../../hooks";
 import { useNavigate } from "react-router-dom";
+import { withAuth } from "@hoc";
 
 const ViewLogin = () => {
   const { login } = useAuth();
@@ -17,4 +18,4 @@ const ViewLogin = () => {
     </Layout>
   );
 };
-export { ViewLogin };
+export const LoginPage = withAuth(ViewLogin);
