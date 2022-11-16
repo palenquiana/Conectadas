@@ -12,7 +12,6 @@ const SearchMovies = () => {
   const { sendPost } = usePost();
   const [searchedMovie, setSearchedMovie] = useState<Movie[]>();
   const [query, setQuery] = useState("");
-  const [page, setPage] = useState(1);
   const [params, setParams] = useSearchParams();
 
   useEffect(() => {
@@ -28,7 +27,6 @@ const SearchMovies = () => {
   }, [query, params]);
 
   const onSwitchPage = (page: number) => {
-    setPage(page);
     params.set("page", page.toString());
     setParams(params);
   };
@@ -90,7 +88,7 @@ const SearchMovies = () => {
           </Container>
           <PaginationMovie
             current={Number(params.get("page"))}
-            onChangePage={() => onSwitchPage(page)}
+            onChangePage={onSwitchPage}
             total={1000}
           />
         </Col>

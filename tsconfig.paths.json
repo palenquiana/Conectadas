@@ -5,10 +5,10 @@
       "@api": ["./src/api"],
       "@components/*": ["./src/components/*"],
       "@constants": ["./src/constants"],
-      "@contexts/*": ["./src/contexts/*"],
+      "@contexts": ["./src/contexts"],
       "@helpers": ["./src/helpers"],
       "@hoc": ["./src/hoc"],
-      "@hooks/*": ["./src/hooks/*"],
+      "@hooks": ["./src/hooks"],
       "@pages": ["./src/pages"],
       "@types": ["./src/types"],
       "@utils": ["./src/utils"]

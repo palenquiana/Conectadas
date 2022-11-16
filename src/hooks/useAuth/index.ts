@@ -38,8 +38,9 @@ const useAuth = () => {
     }
   };
 
-  const logout = (id: string) => {
-    usersApi.patch(id, { sessionToken: null });
+  const logout = () => {
+    console.log(me);
+    me && usersApi.patch(me.id, { sessionToken: null });
     setCurrentUser(undefined);
   };
   const sigup = async (user: SignUpPayload) => {
@@ -47,6 +48,6 @@ const useAuth = () => {
 
     return addUser;
   };
-  return { login, logout, sigup, me };
+  return { login, logout, sigup, loginWithToken, me };
 };
 export { useAuth };

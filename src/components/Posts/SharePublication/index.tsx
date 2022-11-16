@@ -1,10 +1,11 @@
-import { Post } from "@types";
+import { Post, User } from "@types";
 import { Button, Card, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { usePost, useAuth } from "../../../hooks";
 
 const SharePublication = () => {
   const { posts, upgradePost } = usePost();
+
   const { me } = useAuth();
   const { register, handleSubmit } = useForm<{ text: string }>({
     defaultValues: { text: "" },
@@ -48,8 +49,8 @@ const SharePublication = () => {
 
                 <Card.Body>
                   <Card.Title className="f-4">
-                    {post.user.name || me?.name}{" "}
-                    {post.user.lastname || me?.lastname}
+                    {post.user.name} {""}
+                    {post.user.lastname}
                   </Card.Title>
                   <Card.Title className="f-2">{post.title}</Card.Title>
                   <Card.Subtitle>

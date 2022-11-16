@@ -18,6 +18,6 @@ const useUsers = () => {
       });
   }, []);
 
-  return { users };
+  return { users, usersUpdate };
 };
 export { useUsers };

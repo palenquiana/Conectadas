@@ -7,9 +7,10 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { Card, Nav } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
-import { Wall } from "../../pages";
+import { useAuth } from "../../../hooks";
 
 const Navbar = () => {
+  const { logout } = useAuth();
   return (
     <>
       <Card className="d-inline-flex border-0 mt-3 cardNav ">
@@ -27,12 +28,12 @@ const Navbar = () => {
               className="fs-4 text-dark text-opacity-75"
             />
           </NavLink>
-          <NavLink className="nav-link" to="/logout">
+          <Nav.Link className="nav-link" onClick={logout}>
             <FontAwesomeIcon
               icon={faArrowRightFromBracket}
               className="fs-4 text-dark text-opacity-75"
             />
-          </NavLink>
+          </Nav.Link>
 
           <NavLink className="nav-link" to="/user">
             <FontAwesomeIcon
