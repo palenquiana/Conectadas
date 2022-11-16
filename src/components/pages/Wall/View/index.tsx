@@ -2,8 +2,9 @@ import { Layout } from "../../../common";
 import { Col, Container, Row } from "react-bootstrap";
 import { FriendRecomendations } from "../Recomendations";
 import { CreatePost, SharePublication } from "../../../Posts";
+import { withAuth } from "@hoc";
 
-const Wall = () => {
+const WallPage = () => {
   return (
     <Layout page="wall">
       <Container>
@@ -23,4 +24,4 @@ const Wall = () => {
   );
 };
 
-export { Wall };
+export const Wall = withAuth(WallPage);

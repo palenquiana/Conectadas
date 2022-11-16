@@ -10,8 +10,8 @@ type Props = {
 const PaginationMovie: FC<Props> = ({ total, current, onChangePage }) => {
   return (
     <Card className="mt-3 border-0 ">
-      <Pagination onClick={() => onChangePage(1)}>
-        <Pagination.First />
+      <Pagination>
+        <Pagination.First onClick={() => onChangePage(1)} />
         <Pagination.Prev onClick={() => onChangePage(current - 1)} />
         <Pagination.Item onClick={() => onChangePage(current - 1)}>
           {current - 1}
